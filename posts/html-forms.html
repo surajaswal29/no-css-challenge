@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML Forms: A Complete Guide | My Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about HTML forms and their implementation">
+    <meta name="author" content="Blog Author">
+</head>
+
+<body bgcolor="#EEF1DA" alink="#000" link="#000" vlink="#000">
+    <table width="100%" cellpadding="15" border="0" cellspacing="0">
+        <!-- Header -->
+        <tr>
+            <td bgcolor="#ADB2D4" height="40px" colspan="3">
+                <nav align="center">
+                    <font size="4" face="Arial, sans-serif" color="#FFFFFF">
+                        <a href="../index.html"><b>Home</b></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="../about.html" style="color: #FFFFFF">About</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="../contact.html" style="color: #FFFFFF">Contact</a>
+                    </font>
+                </nav>
+            </td>
+        </tr>
+
+        <!-- Main Content -->
+        <tr>
+            <td colspan="3" align="center">
+                <table width="100%" cellpadding="20" cellspacing="0" border="0">
+                    <tr>
+                        <td bgcolor="#C7D9DD" align="center">
+                            <svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#ADB2D4" />
+                                <!-- Decorative elements -->
+                                <circle cx="200" cy="200" r="80" fill="#C7D9DD" opacity="0.5" />
+                                <circle cx="1000" cy="200" r="80" fill="#C7D9DD" opacity="0.5" />
+                                <!-- Main design - represents forms -->
+                                <rect x="400" y="100" width="400" height="200" fill="#D5E5D5" opacity="0.8" />
+                                <rect x="420" y="120" width="360" height="30" fill="#ADB2D4" opacity="0.7" />
+                                <rect x="420" y="160" width="360" height="30" fill="#ADB2D4" opacity="0.7" />
+                                <rect x="420" y="200" width="360" height="30" fill="#ADB2D4" opacity="0.7" />
+                                <rect x="420" y="240" width="180" height="30" fill="#ADB2D4" opacity="0.7" />
+                            </svg>
+                            <font face="Arial, sans-serif" size="7">
+                                <h1>HTML Forms: A Complete Guide</h1>
+                            </font>
+                            <font face="Arial, sans-serif" size="4">
+                                <p>Learn how to create interactive forms using pure HTML</p>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Article Content -->
+        <tr>
+            <td colspan="3">
+                <table width="80%" cellpadding="20" cellspacing="0" border="0" align="center">
+                    <tr>
+                        <td bgcolor="#D5E5D5">
+                            <font face="Arial, sans-serif">
+                                <h2>Introduction to HTML Forms</h2>
+                                <p>HTML forms are essential elements for collecting user input on web pages. They allow
+                                    users to submit data to a server for processing. In this guide, we'll explore the
+                                    various form elements and how to use them effectively.</p>
+
+                                <h2>Basic Form Structure</h2>
+                                <p>Here's a simple example of a basic form structure:</p>
+                                <pre>
+&lt;form action="/submit" method="post"&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+  
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+                </pre>
+
+                                <h2>Common Form Elements</h2>
+                                <h3>Text Input</h3>
+                                <p>The most basic form element is the text input:</p>
+                                <form action="#" method="post">
+                                    <label for="example-text">Text Input:</label><br>
+                                    <input type="text" id="example-text" name="example-text" size="40">
+                                </form>
+
+                                <h3>Radio Buttons</h3>
+                                <p>Radio buttons allow users to select one option from a group:</p>
+                                <form action="#" method="post">
+                                    <input type="radio" id="option1" name="options" value="option1">
+                                    <label for="option1">Option 1</label><br>
+                                    <input type="radio" id="option2" name="options" value="option2">
+                                    <label for="option2">Option 2</label><br>
+                                    <input type="radio" id="option3" name="options" value="option3">
+                                    <label for="option3">Option 3</label>
+                                </form>
+
+                                <h3>Checkboxes</h3>
+                                <p>Checkboxes allow users to select multiple options:</p>
+                                <form action="#" method="post">
+                                    <input type="checkbox" id="check1" name="checks" value="check1">
+                                    <label for="check1">Checkbox 1</label><br>
+                                    <input type="checkbox" id="check2" name="checks" value="check2">
+                                    <label for="check2">Checkbox 2</label><br>
+                                    <input type="checkbox" id="check3" name="checks" value="check3">
+                                    <label for="check3">Checkbox 3</label>
+                                </form>
+
+                                <h3>Select Dropdown</h3>
+                                <p>Dropdown menus allow users to select from a list of options:</p>
+                                <form action="#" method="post">
+                                    <select name="dropdown" id="dropdown">
+                                        <option value="option1">Option 1</option>
+                                        <option value="option2">Option 2</option>
+                                        <option value="option3">Option 3</option>
+                                    </select>
+                                </form>
+
+                                <h2>Form Best Practices</h2>
+                                <ul>
+                                    <li>Always use labels for form elements</li>
+                                    <li>Group related form elements</li>
+                                    <li>Provide clear instructions</li>
+                                    <li>Use appropriate input types</li>
+                                    <li>Include validation where necessary</li>
+                                </ul>
+
+                                <h2>Complete Example</h2>
+                                <p>Here's a complete form example combining various elements:</p>
+                                <form action="#" method="post">
+                                    <table cellspacing="10">
+                                        <tr>
+                                            <td><label for="fullname">Full Name:</label></td>
+                                            <td><input type="text" id="fullname" name="fullname" size="40"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="useremail">Email:</label></td>
+                                            <td><input type="email" id="useremail" name="useremail" size="40"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="message">Message:</label></td>
+                                            <td><textarea id="message" name="message" rows="5" cols="40"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Interests:</label></td>
+                                            <td>
+                                                <input type="checkbox" id="interest1" name="interests" value="web">
+                                                <label for="interest1">Web Development</label><br>
+                                                <input type="checkbox" id="interest2" name="interests" value="design">
+                                                <label for="interest2">Design</label><br>
+                                                <input type="checkbox" id="interest3" name="interests" value="other">
+                                                <label for="interest3">Other</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><input type="submit" value="Submit Form"></td>
+                                        </tr>
+                                    </table>
+                                </form>
+
+                                <h2>Conclusion</h2>
+                                <p>HTML forms are powerful tools for collecting user input. By understanding the various
+                                    form elements and their proper usage, you can create effective and user-friendly
+                                    forms for your website.</p>
+
+                                <p><a href="../index.html">← Back to Home</a></p>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+            <td bgcolor="#ADB2D4" colspan="3" align="center">
+                <font face="Arial, sans-serif" size="2" color="#FFFFFF">
+                    <p>© 2024 My Blog. All rights reserved.</p>
+                </font>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
