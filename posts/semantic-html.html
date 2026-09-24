@@ -1,184 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>The Art of Semantic HTML | My Blog</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about semantic HTML and its importance in web development">
-    <meta name="author" content="Blog Author">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Art of Semantic HTML | The Quiet Web</title>
+  <meta name="description" content="Choosing the element that means what you mean. Better for screen readers, search engines and the next person to read your code.">
+  <meta name="author" content="Suraj Aswal">
+  <meta name="theme-color" content="#DCE6E0">
+  <meta name="generator" content="Hand-written HTML. No CSS, no JavaScript.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23DCE6E0'/%3E%3Cpath d='M4 22c6-6 10-6 14-2s8 2 10-2v10H4z' fill='%234E7471'/%3E%3Ccircle cx='21' cy='11' r='4' fill='%23F3CFA6'/%3E%3C/svg%3E">
+  <link rel="prefetch" href="html-tables.html">
 </head>
-
-<body bgcolor="#EEF1DA" alink="#000" link="#000" vlink="#000">
-    <table width="100%" cellpadding="15" border="0" cellspacing="0">
-        <!-- Header -->
-        <tr>
-            <td bgcolor="#ADB2D4" height="40px" colspan="3">
-                <nav align="center">
-                    <font size="4" face="Arial, sans-serif" color="#FFFFFF">
-                        <a href="../index.html"><b>Home</b></a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="../about.html" style="color: #FFFFFF">About</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="../contact.html" style="color: #FFFFFF">Contact</a>
-                    </font>
-                </nav>
+<body bgcolor="#F5F2EB" text="#3D4A48" link="#4E7471" vlink="#7A6A8A" alink="#2F5456" marginwidth="0" marginheight="0">
+<font face="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif">
+<header id="top">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#DCE6E0" role="presentation">
+    <tr>
+      <td></td>
+      <td width="1040">
+        <table width="100%" cellpadding="16" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <td>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td valign="middle"><a href="../index.html">
+                    <table cellpadding="0" cellspacing="0" border="0" role="presentation">
+                      <tr>
+                        <td><svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#F5F2EB"/><path d="M4 22c6-6 10-6 14-2s8 2 10-2v10H4z" fill="#4E7471"/><circle cx="21" cy="11" r="4" fill="#F3CFA6"><animate attributeName="r" values="3.5;4.5;3.5" dur="8s" repeatCount="indefinite"/></circle></svg></td>
+                        <td width="10"></td>
+                        <td><font size="5" color="#3D4A48"><b>The Quiet Web</b></font></td>
+                      </tr>
+                    </table>
+                    </a>
+                  </td>
+                  <td align="right" valign="middle">
+                    <nav aria-label="Main"><font size="3"><a href="../index.html" accesskey="h">Home</a> &nbsp;&middot;&nbsp; <a href="../services.html" accesskey="s">Services</a> &nbsp;&middot;&nbsp; <a href="../about.html" accesskey="a">About</a> &nbsp;&middot;&nbsp; <a href="../contact.html" accesskey="c">Contact</a></font></nav>
+                  </td>
+                </tr>
+              </table>
             </td>
-        </tr>
-
-        <!-- Main Content -->
-        <tr>
-            <td colspan="3" align="center">
-                <table width="100%" cellpadding="20" cellspacing="0" border="0">
-                    <tr>
-                        <td bgcolor="#C7D9DD" align="center">
-                            <svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="100%" height="100%" fill="#ADB2D4" />
-                                <!-- Decorative elements -->
-                                <circle cx="200" cy="200" r="80" fill="#C7D9DD" opacity="0.5" />
-                                <circle cx="1000" cy="200" r="80" fill="#C7D9DD" opacity="0.5" />
-                                <!-- Main design - represents semantic structure -->
-                                <rect x="400" y="100" width="400" height="200" fill="#D5E5D5" opacity="0.8" />
-                                <rect x="420" y="120" width="360" height="40" fill="#ADB2D4" opacity="0.7" />
-                                <rect x="420" y="170" width="360" height="40" fill="#ADB2D4" opacity="0.7" />
-                                <rect x="420" y="220" width="360" height="40" fill="#ADB2D4" opacity="0.7" />
-                                <rect x="420" y="270" width="360" height="20" fill="#ADB2D4" opacity="0.7" />
-                            </svg>
-                            <font face="Arial, sans-serif" size="7">
-                                <h1>The Art of Semantic HTML</h1>
-                            </font>
-                            <font face="Arial, sans-serif" size="4">
-                                <p>Understanding the importance of semantic HTML in modern web development</p>
-                            </font>
-                        </td>
-                    </tr>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</header>
+<main id="main">
+<svg width="100%" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration for The Art of Semantic HTML">
+  <defs><linearGradient id="bandsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4ECEC"/><stop offset="1" stop-color="#F5F2EB"/></linearGradient></defs>
+  <rect width="1200" height="220" fill="url(#bandsky)"/>
+  <g opacity="0.8"><animateTransform attributeName="transform" type="translate" from="-260 0" to="1460 0" dur="170s" begin="-60s" repeatCount="indefinite"/><g transform="translate(300 60) scale(0.7)" fill="#FFFFFF"><ellipse cx="0" cy="0" rx="60" ry="22"/><ellipse cx="-34" cy="6" rx="38" ry="16"/><ellipse cx="38" cy="4" rx="44" ry="18"/><ellipse cx="6" cy="-14" rx="34" ry="20"/></g></g>
+  <g opacity="0.7"><animateTransform attributeName="transform" type="translate" from="-260 0" to="1460 0" dur="200s" begin="-150s" repeatCount="indefinite"/><g transform="translate(900 90) scale(0.55)" fill="#FFFFFF"><ellipse cx="0" cy="0" rx="60" ry="22"/><ellipse cx="-34" cy="6" rx="38" ry="16"/><ellipse cx="38" cy="4" rx="44" ry="18"/><ellipse cx="6" cy="-14" rx="34" ry="20"/></g></g>
+  <path d="M0 175 C 200 140 380 150 560 175 S 900 150 1200 170 V220 H0Z" fill="#C9D8CD"/>
+  <path d="M0 195 C 260 175 520 185 760 200 S 1060 185 1200 195 V220 H0Z" fill="#B3C8BA"/>
+  <g transform="translate(900 20)"><rect x="10" y="10" width="160" height="26" rx="8" fill="#C9C0D8"/>
+      <rect x="10" y="44" width="104" height="96" rx="8" fill="#FCFBF8" stroke="#D6DDD5"/>
+      <rect x="122" y="44" width="48" height="96" rx="8" fill="#DCE6E0"/>
+      <rect x="22" y="58" width="80" height="8" rx="4" fill="#4E7471"/><rect x="22" y="76" width="70" height="6" rx="3" fill="#C9D8CD"/>
+      <rect x="22" y="90" width="76" height="6" rx="3" fill="#C9D8CD"/>
+      <circle cx="146" cy="70" r="10" fill="#F3CFA6"><animate attributeName="cy" values="70;114;70" dur="10s" repeatCount="indefinite"/></circle></g>
+</svg>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+    <tr>
+      <td></td>
+      <td width="720">
+        <table width="100%" cellpadding="16" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <td>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="8"></td>
+                </tr>
+              </table>
+              <nav aria-label="Breadcrumb"><font size="2"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#posts">Posts</a> &rsaquo; <span aria-current="page">The Art of Semantic HTML</span></font></nav>
+              <article>
+                <header>
+                  <h1><font size="7">The Art of Semantic HTML</font></h1>
+                  <p><font size="3" color="#6E7C78">By Suraj Aswal &middot; <time datetime="2024-03-10">10 March 2024</time> &middot; 6 min read</font></p>
+                  <p><font size="3" color="#6E7C78"><label for="lvl">Level</label> <meter id="lvl" min="0" max="3" low="1.5" high="2.5" optimum="0" value="1">Beginner</meter> Beginner &nbsp;&middot;&nbsp; <label for="series">Series</label> <progress id="series" max="4" value="2">Part 2 of 4</progress> Part 2 of 4</font></p>
+                </header>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="18" cellspacing="0" border="0" bgcolor="#EFE8DA" role="presentation">
+                        <tr>
+                          <td>
+                            <details open>
+                              <summary><b>On this page</b></summary>
+                              <ol>
+                                <li><a href="#what">What is semantic HTML?</a></li>
+                                <li><a href="#why">Why it matters</a></li>
+                                <li><a href="#landmarks">Landmarks: the map of a page</a></li>
+                                <li><a href="#text-level">Small elements with big meaning</a></li>
+                                <li><a href="#compare">Before and after</a></li>
+                                <li><a href="#demo">Semantics in action</a></li>
+                                <li><a href="#practice">Good habits</a></li>
+                                <li><a href="#next">In short</a></li>
+                              </ol>
+                            </details>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
                 </table>
-            </td>
-        </tr>
-
-        <!-- Article Content -->
-        <tr>
-            <td colspan="3">
-                <table width="80%" cellpadding="20" cellspacing="0" border="0" align="center">
-                    <tr>
-                        <td bgcolor="#D5E5D5">
-                            <font face="Arial, sans-serif">
-                                <h2>What is Semantic HTML?</h2>
-                                <p>Semantic HTML refers to the use of HTML elements that clearly describe their meaning
-                                    in a human and machine-readable way. Instead of using generic elements like
-                                    &lt;div&gt; and &lt;span&gt;, semantic elements provide meaning to the content they
-                                    contain.</p>
-
-                                <h2>Why Use Semantic HTML?</h2>
-                                <ul>
-                                    <li>Improved accessibility for screen readers</li>
-                                    <li>Better SEO (Search Engine Optimization)</li>
-                                    <li>Clearer code structure and maintenance</li>
-                                    <li>Enhanced user experience</li>
-                                </ul>
-
-                                <h2>Common Semantic Elements</h2>
-                                <h3>Document Structure</h3>
-                                <pre>
-&lt;header&gt;    - Introductory content
-&lt;nav&gt;       - Navigation links
-&lt;main&gt;      - Main content
-&lt;article&gt;   - Self-contained content
-&lt;section&gt;   - Thematic grouping
-&lt;aside&gt;     - Sidebar content
-&lt;footer&gt;    - Footer content
-                </pre>
-
-                                <h3>Text Semantics</h3>
-                                <pre>
-&lt;h1&gt; to &lt;h6&gt; - Headings
-&lt;p&gt;          - Paragraphs
-&lt;strong&gt;     - Important text
-&lt;em&gt;         - Emphasized text
-&lt;mark&gt;       - Highlighted text
-&lt;time&gt;       - Time/date
-                </pre>
-
-                                <h2>Example: Semantic vs Non-semantic</h2>
-                                <h3>Non-semantic Structure</h3>
-                                <pre>
-&lt;div id="header"&gt;
-  &lt;div class="nav"&gt;
-    &lt;div class="menu"&gt;...&lt;/div&gt;
+                <h2 id="what">What is semantic HTML?</h2>
+                <p><font size="4">Semantic HTML means choosing the element whose <i>meaning</i> matches your content. A navigation bar is a <code>&lt;nav&gt;</code>, not a <code>&lt;div class="nav"&gt;</code>; a date is a <code>&lt;time&gt;</code>, not just some text.</font></p>
+                <p><font size="4">Browsers, search engines and screen readers all read that meaning and use it to help people.</font></p>
+                <h2 id="why">Why it matters</h2>
+                <ul>
+                  <li><font size="4"><b>Accessibility.</b> Screen reader users can jump straight to the navigation, the main content or the next heading</font></li>
+                  <li><font size="4"><b>Search.</b> Search engines understand what your page is about</font></li>
+                  <li><font size="4"><b>Maintenance.</b> <code>&lt;article&gt;</code> tells the next developer far more than <code>&lt;div&gt;</code></font></li>
+                  <li><font size="4"><b>Free features.</b> Reader modes, outlines and translation tools all work better</font></li>
+                </ul>
+                <h2 id="landmarks">Landmarks: the map of a page</h2>
+                <p><font size="4">Landmarks<sup><button type="button" popovertarget="fn1" aria-label="Footnote 1">1</button></sup><span id="fn1" popover><font size="3"><b>Footnote 1.</b> Try it: most screen readers list landmarks with a single shortcut, for example <kbd>D</kbd> in NVDA or the rotor in VoiceOver.</font></span> divide a page into regions that assistive technology can list and jump between.</font></p>
+                <table width="100%" border="1" frame="hsides" rules="rows" bordercolor="#D6DDD5" cellpadding="10" cellspacing="0">
+                  <caption><font size="2" color="#6E7C78">Landmark elements and the roles they give to assistive technology</font></caption>
+                  <thead>
+                    <tr bgcolor="#DCE6E0">
+                      <th scope="col" align="left">Element</th>
+                      <th scope="col" align="left">Role</th>
+                      <th scope="col" align="left">Use it for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr bgcolor="#FFFFFF">
+                      <td><code>&lt;header&gt;</code></td>
+                      <td>banner</td>
+                      <td>Site title, logo and main navigation</td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <td><code>&lt;nav&gt;</code></td>
+                      <td>navigation</td>
+                      <td>A group of important links</td>
+                    </tr>
+                    <tr bgcolor="#FFFFFF">
+                      <td><code>&lt;main&gt;</code></td>
+                      <td>main</td>
+                      <td>The unique content of this page (only one)</td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <td><code>&lt;article&gt;</code></td>
+                      <td>article</td>
+                      <td>A self-contained piece, like a post</td>
+                    </tr>
+                    <tr bgcolor="#FFFFFF">
+                      <td><code>&lt;section&gt;</code></td>
+                      <td>region*</td>
+                      <td>A themed group with its own heading</td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <td><code>&lt;aside&gt;</code></td>
+                      <td>complementary</td>
+                      <td>Related content, such as a tip</td>
+                    </tr>
+                    <tr bgcolor="#FFFFFF">
+                      <td><code>&lt;footer&gt;</code></td>
+                      <td>contentinfo</td>
+                      <td>Copyright, contact and small print</td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <td><code>&lt;search&gt;</code></td>
+                      <td>search</td>
+                      <td>A search form</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p><font size="2" color="#6E7C78">* A <code>&lt;section&gt;</code> only becomes a region when it has an accessible name.</font></p>
+                <h2 id="text-level">Small elements with big meaning</h2>
+                <p><font size="4">Open each one. Only one stays open at a time, thanks to the shared <code>name</code> attribute on <code>&lt;details&gt;</code>.</font></p>
+                <details name="text-level">
+                  <summary><code>&lt;time&gt;</code> dates and times</summary>
+                  <p><font size="4">Machine-readable dates: <code>&lt;time datetime="2024-03-10"&gt;</code>. Here: <time datetime="2024-03-10">10 March 2024</time>.</font></p>
+                </details>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td height="4"></td>
+                  </tr>
+                </table>
+                <details name="text-level">
+                  <summary><code>&lt;mark&gt;</code> highlighted text</summary>
+                  <p><font size="4">Text that is relevant right now, such as a <mark>search match</mark>.</font></p>
+                </details>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td height="4"></td>
+                  </tr>
+                </table>
+                <details name="text-level">
+                  <summary><code>&lt;dfn&gt;</code> the defining instance of a term</summary>
+                  <p><font size="4">A <dfn>landmark</dfn> is a region of a page that assistive technology can jump to.</font></p>
+                </details>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td height="4"></td>
+                  </tr>
+                </table>
+                <details name="text-level">
+                  <summary><code>&lt;cite&gt;</code> the title of a work</summary>
+                  <p><font size="4">My favourite book on the subject is <cite>Resilient Web Design</cite>.</font></p>
+                </details>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td height="4"></td>
+                  </tr>
+                </table>
+                <details name="text-level">
+                  <summary><code>&lt;abbr&gt;</code> abbreviations</summary>
+                  <p><font size="4">Screen readers can expand <abbr title="Accessible Rich Internet Applications">ARIA</abbr> for listeners.</font></p>
+                </details>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td height="4"></td>
+                  </tr>
+                </table>
+                <details name="text-level">
+                  <summary><code>&lt;figure&gt;</code> self-contained media with a caption</summary>
+                  <p><font size="4">Group an image, chart or code sample with its <code>&lt;figcaption&gt;</code>.</font></p>
+                </details>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td height="4"></td>
+                  </tr>
+                </table>
+                <h2 id="compare">Before and after</h2>
+                <p><font size="4">The same page skeleton, written twice:</font></p>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="16" cellspacing="0" border="0" bgcolor="#EAF0EC" role="presentation">
+                        <tr>
+                          <td><font size="2" color="#6E7C78">Without meaning</font><pre><font size="3" color="#2F3D3B"><code>&lt;div id=&quot;header&quot;&gt;
+  &lt;div class=&quot;nav&quot;&gt;
+    &lt;div class=&quot;menu&quot;&gt;...&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="main"&gt;
-  &lt;div class="content"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-                </pre>
-
-                                <h3>Semantic Structure</h3>
-                                <pre>
-&lt;header&gt;
+&lt;div id=&quot;main&quot;&gt;
+  &lt;div class=&quot;content&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></font></pre></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td height="12"></td>
+                  </tr>
+                </table>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="16" cellspacing="0" border="0" bgcolor="#EAF0EC" role="presentation">
+                        <tr>
+                          <td><font size="2" color="#6E7C78">With meaning</font><pre><font size="3" color="#2F3D3B"><code>&lt;header&gt;
   &lt;nav&gt;
     &lt;ul&gt;...&lt;/ul&gt;
   &lt;/nav&gt;
 &lt;/header&gt;
 &lt;main&gt;
   &lt;article&gt;...&lt;/article&gt;
-&lt;/main&gt;
-                </pre>
-
-                                <h2>Semantic Elements in Action</h2>
-                                <article>
-                                    <header>
-                                        <h3>Article Title</h3>
-                                        <time datetime="2024-03-10">March 10, 2024</time>
-                                    </header>
-                                    <section>
-                                        <p>This is a <strong>semantically structured</strong> article with proper
-                                            <em>emphasis</em> and <mark>highlighted</mark> text.</p>
-                                    </section>
-                                    <footer>
-                                        <p>Posted by: Author Name</p>
-                                    </footer>
-                                </article>
-
-                                <h2>Best Practices</h2>
-                                <ul>
-                                    <li>Use appropriate heading levels (h1-h6)</li>
-                                    <li>Choose semantic elements over generic divs</li>
-                                    <li>Include ARIA labels when necessary</li>
-                                    <li>Maintain a logical document outline</li>
-                                    <li>Use landmarks for major page sections</li>
-                                </ul>
-
-                                <h2>Accessibility Benefits</h2>
-                                <p>Semantic HTML greatly improves accessibility by:</p>
-                                <ul>
-                                    <li>Providing clear structure for screen readers</li>
-                                    <li>Enabling better keyboard navigation</li>
-                                    <li>Improving content organization</li>
-                                    <li>Making the page more understandable</li>
-                                </ul>
-
-                                <h2>Conclusion</h2>
-                                <p>Using semantic HTML is not just about following best practices - it's about creating
-                                    a better web for everyone. By choosing the right elements for your content, you make
-                                    your website more accessible, maintainable, and search-engine friendly.</p>
-
-                                <p><a href="../index.html">← Back to Home</a></p>
-                            </font>
-                        </td>
-                    </tr>
+&lt;/main&gt;</code></font></pre></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
                 </table>
+                <p><font size="4">Both look identical. Only the second tells the browser what each part <em>is</em>.</font></p>
+                <h2 id="demo">Semantics in action</h2>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="16" cellspacing="0" border="0" bgcolor="#EAF0EC" role="presentation">
+                        <tr>
+                          <td><pre><font size="3" color="#2F3D3B"><code>&lt;article&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Morning pages&lt;/h2&gt;
+    &lt;p&gt;&lt;small&gt;By Asha,
+      &lt;time datetime=&quot;2024-03-10&quot;&gt;
+        10 March&lt;/time&gt;&lt;/small&gt;&lt;/p&gt;
+  &lt;/header&gt;
+  &lt;p&gt;Three pages, first thing,
+    &lt;em&gt;every&lt;/em&gt; day. It is
+    &lt;mark&gt;simpler&lt;/mark&gt; than it
+    sounds.&lt;/p&gt;
+  &lt;footer&gt;
+    &lt;small&gt;Filed under habits&lt;/small&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</code></font></pre></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td height="12"></td>
+                  </tr>
+                </table>
+                <figure>
+                  <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                    <tr>
+                      <td>
+                        <table width="100%" cellpadding="8" cellspacing="0" border="0" bgcolor="#FFFFFF" role="presentation">
+                          <tr>
+                            <td>
+                              <iframe srcdoc="&lt;body bgcolor=&#x27;#FFFFFF&#x27;&gt;&lt;font face=&#x27;Georgia, serif&#x27;&gt;&lt;article&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Morning pages&lt;/h2&gt;
+    &lt;p&gt;&lt;small&gt;By Asha,
+      &lt;time datetime=&quot;2024-03-10&quot;&gt;
+        10 March&lt;/time&gt;&lt;/small&gt;&lt;/p&gt;
+  &lt;/header&gt;
+  &lt;p&gt;Three pages, first thing,
+    &lt;em&gt;every&lt;/em&gt; day. It is
+    &lt;mark&gt;simpler&lt;/mark&gt; than it
+    sounds.&lt;/p&gt;
+  &lt;footer&gt;
+    &lt;small&gt;Filed under habits&lt;/small&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;&lt;/font&gt;&lt;/body&gt;" sandbox="" width="100%" height="260" frameborder="0" title="A small article built only from semantic elements"></iframe>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <figcaption><font size="2" color="#6E7C78">A small article built only from semantic elements</font></figcaption>
+                </figure>
+                <h2 id="practice">Good habits</h2>
+                <ul>
+                  <li><font size="4">Use headings in order and do not skip levels</font></li>
+                  <li><font size="4">Reach for a semantic element before a <code>&lt;div&gt;</code></font></li>
+                  <li><font size="4">Use <code>&lt;button&gt;</code> for actions and <code>&lt;a&gt;</code> for navigation</font></li>
+                  <li><font size="4">Add ARIA only when no HTML element fits</font></li>
+                  <li><font size="4">Have exactly one <code>&lt;main&gt;</code> per page</font></li>
+                </ul>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="26" cellspacing="0" border="0" bgcolor="#EFE8DA" role="presentation">
+                        <tr>
+                          <td><font color="#4E7471"><b>Try it yourself</b></font>
+                            <p><font size="4">Which element would you use for: a blog post, a list of the site's main pages, and a publication date?</font></p>
+                            <p><a href="#solution-1">Show the solution</a></p>
+                            <div id="solution-1" hidden="until-found">
+                              <hr size="1" noshade color="#D6DDD5">
+                              <ul>
+                                <li><font size="4">A blog post: <code>&lt;article&gt;</code></font></li>
+                                <li><font size="4">Main pages: <code>&lt;nav&gt;</code> with a <code>&lt;ul&gt;</code> inside</font></li>
+                                <li><font size="4">Publication date: <code>&lt;time datetime="&hellip;"&gt;</code></font></li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <h2 id="next">In short</h2>
+                <p><font size="4">Semantic HTML is not extra work; it is choosing the right word. Next, see how far a humble table can go in <a href="html-tables.html">HTML Tables: A Complete Guide</a>.</font></p>
+              </article>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="24"></td>
+                </tr>
+              </table>
+              <hr size="1" noshade color="#D6DDD5">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="8"></td>
+                </tr>
+              </table>
+              <nav aria-label="More posts">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td width="50%" valign="top"><font size="2" color="#6E7C78">Previous</font><br><a href="getting-started.html" rel="prev">&larr; Getting Started with Pure HTML</a></td>
+                    <td width="50%" valign="top" align="right"><font size="2" color="#6E7C78">Next</font><br><a href="html-tables.html" rel="next">HTML Tables: A Complete Guide &rarr;</a></td>
+                  </tr>
+                </table>
+              </nav>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="16"></td>
+                </tr>
+              </table>
+              <p align="right"><font size="3"><a href="#top">Back to top &uarr;</a></font></p>
             </td>
-        </tr>
-
-        <!-- Footer -->
-        <tr>
-            <td bgcolor="#ADB2D4" colspan="3" align="center">
-                <font face="Arial, sans-serif" size="2" color="#FFFFFF">
-                    <p>© 2024 My Blog. All rights reserved.</p>
-                </font>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</main>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+  <tr>
+    <td height="40"></td>
+  </tr>
+</table>
+<footer>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#DCE6E0" role="presentation">
+    <tr>
+      <td></td>
+      <td width="1040">
+        <table width="100%" cellpadding="16" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <td>
+              <p align="center"><font size="3"><a href="../index.html">Home</a> &nbsp;&middot;&nbsp; <a href="../services.html">Services</a> &nbsp;&middot;&nbsp; <a href="../about.html">About</a> &nbsp;&middot;&nbsp; <a href="../contact.html">Contact</a></font></p>
+              <p align="center"><font size="2" color="#6E7C78">Access keys: <kbd>H</kbd> home, <kbd>S</kbd> services, <kbd>A</kbd> about, <kbd>C</kbd> contact. Press them with <kbd>Alt</kbd>, or <kbd>Alt</kbd>+<kbd>Shift</kbd>, depending on your browser.</font></p>
+              <p align="center"><font size="2" color="#6E7C78">&copy; 2024&ndash;2026 Suraj Aswal &middot; <a href="https://github.com/surajaswal29">GitHub</a><br>Made with HTML only. No CSS, no JavaScript, no hurry.</font></p>
             </td>
-        </tr>
-    </table>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</footer>
+</font>
 </body>
-
 </html>

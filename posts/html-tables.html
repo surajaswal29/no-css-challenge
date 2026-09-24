@@ -1,238 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>HTML Tables: A Complete Guide | My Blog</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about HTML tables and their implementation">
-    <meta name="author" content="Blog Author">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML Tables: A Complete Guide | The Quiet Web</title>
+  <meta name="description" content="Captions, headers, spans and scope, plus the old table attributes that still let you style a page without a stylesheet.">
+  <meta name="author" content="Suraj Aswal">
+  <meta name="theme-color" content="#DCE6E0">
+  <meta name="generator" content="Hand-written HTML. No CSS, no JavaScript.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23DCE6E0'/%3E%3Cpath d='M4 22c6-6 10-6 14-2s8 2 10-2v10H4z' fill='%234E7471'/%3E%3Ccircle cx='21' cy='11' r='4' fill='%23F3CFA6'/%3E%3C/svg%3E">
+  <link rel="prefetch" href="html-forms.html">
 </head>
-
-<body bgcolor="#EEF1DA" alink="#000" link="#000" vlink="#000">
-    <table width="100%" cellpadding="15" border="0" cellspacing="0">
-        <!-- Header -->
-        <tr>
-            <td bgcolor="#ADB2D4" height="40px" colspan="3">
-                <nav align="center">
-                    <font size="4" face="Arial, sans-serif" color="#FFFFFF">
-                        <a href="../index.html"><b>Home</b></a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="../about.html" style="color: #FFFFFF">About</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="../contact.html" style="color: #FFFFFF">Contact</a>
-                    </font>
-                </nav>
+<body bgcolor="#F5F2EB" text="#3D4A48" link="#4E7471" vlink="#7A6A8A" alink="#2F5456" marginwidth="0" marginheight="0">
+<font face="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif">
+<header id="top">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#DCE6E0" role="presentation">
+    <tr>
+      <td></td>
+      <td width="1040">
+        <table width="100%" cellpadding="16" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <td>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td valign="middle"><a href="../index.html">
+                    <table cellpadding="0" cellspacing="0" border="0" role="presentation">
+                      <tr>
+                        <td><svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#F5F2EB"/><path d="M4 22c6-6 10-6 14-2s8 2 10-2v10H4z" fill="#4E7471"/><circle cx="21" cy="11" r="4" fill="#F3CFA6"><animate attributeName="r" values="3.5;4.5;3.5" dur="8s" repeatCount="indefinite"/></circle></svg></td>
+                        <td width="10"></td>
+                        <td><font size="5" color="#3D4A48"><b>The Quiet Web</b></font></td>
+                      </tr>
+                    </table>
+                    </a>
+                  </td>
+                  <td align="right" valign="middle">
+                    <nav aria-label="Main"><font size="3"><a href="../index.html" accesskey="h">Home</a> &nbsp;&middot;&nbsp; <a href="../services.html" accesskey="s">Services</a> &nbsp;&middot;&nbsp; <a href="../about.html" accesskey="a">About</a> &nbsp;&middot;&nbsp; <a href="../contact.html" accesskey="c">Contact</a></font></nav>
+                  </td>
+                </tr>
+              </table>
             </td>
-        </tr>
-
-        <!-- Main Content -->
-        <tr>
-            <td colspan="3" align="center">
-                <table width="100%" cellpadding="20" cellspacing="0" border="0">
-                    <tr>
-                        <td bgcolor="#C7D9DD" align="center">
-                            <svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="100%" height="100%" fill="#ADB2D4" />
-                                <!-- Decorative elements -->
-                                <circle cx="200" cy="200" r="80" fill="#C7D9DD" opacity="0.5" />
-                                <circle cx="1000" cy="200" r="80" fill="#C7D9DD" opacity="0.5" />
-                                <!-- Main design - represents table structure -->
-                                <rect x="400" y="100" width="400" height="200" fill="#D5E5D5" opacity="0.8" />
-                                <!-- Table grid -->
-                                <line x1="400" y1="150" x2="800" y2="150" stroke="white" stroke-width="2" />
-                                <line x1="400" y1="200" x2="800" y2="200" stroke="white" stroke-width="2" />
-                                <line x1="400" y1="250" x2="800" y2="250" stroke="white" stroke-width="2" />
-                                <line x1="500" y1="100" x2="500" y2="300" stroke="white" stroke-width="2" />
-                                <line x1="600" y1="100" x2="600" y2="300" stroke="white" stroke-width="2" />
-                                <line x1="700" y1="100" x2="700" y2="300" stroke="white" stroke-width="2" />
-                            </svg>
-                            <font face="Arial, sans-serif" size="7">
-                                <h1>HTML Tables: A Complete Guide</h1>
-                            </font>
-                            <font face="Arial, sans-serif" size="4">
-                                <p>Master the art of creating and styling HTML tables</p>
-                            </font>
-                        </td>
-                    </tr>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</header>
+<main id="main">
+<svg width="100%" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration for HTML Tables: A Complete Guide">
+  <defs><linearGradient id="bandsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4ECEC"/><stop offset="1" stop-color="#F5F2EB"/></linearGradient></defs>
+  <rect width="1200" height="220" fill="url(#bandsky)"/>
+  <g opacity="0.8"><animateTransform attributeName="transform" type="translate" from="-260 0" to="1460 0" dur="170s" begin="-60s" repeatCount="indefinite"/><g transform="translate(300 60) scale(0.7)" fill="#FFFFFF"><ellipse cx="0" cy="0" rx="60" ry="22"/><ellipse cx="-34" cy="6" rx="38" ry="16"/><ellipse cx="38" cy="4" rx="44" ry="18"/><ellipse cx="6" cy="-14" rx="34" ry="20"/></g></g>
+  <g opacity="0.7"><animateTransform attributeName="transform" type="translate" from="-260 0" to="1460 0" dur="200s" begin="-150s" repeatCount="indefinite"/><g transform="translate(900 90) scale(0.55)" fill="#FFFFFF"><ellipse cx="0" cy="0" rx="60" ry="22"/><ellipse cx="-34" cy="6" rx="38" ry="16"/><ellipse cx="38" cy="4" rx="44" ry="18"/><ellipse cx="6" cy="-14" rx="34" ry="20"/></g></g>
+  <path d="M0 175 C 200 140 380 150 560 175 S 900 150 1200 170 V220 H0Z" fill="#C9D8CD"/>
+  <path d="M0 195 C 260 175 520 185 760 200 S 1060 185 1200 195 V220 H0Z" fill="#B3C8BA"/>
+  <g transform="translate(900 20)"><rect x="10" y="10" width="160" height="130" rx="12" fill="#FCFBF8" stroke="#D6DDD5"/>
+      <rect x="10" y="10" width="160" height="30" rx="12" fill="#B3C8BA"/>
+      <g stroke="#D6DDD5" stroke-width="2"><line x1="10" y1="72" x2="170" y2="72"/><line x1="10" y1="106" x2="170" y2="106"/>
+      <line x1="63" y1="40" x2="63" y2="140"/><line x1="117" y1="40" x2="117" y2="140"/></g>
+      <rect x="66" y="75" width="48" height="28" fill="#F3CFA6" opacity="0.8"><animate attributeName="x" values="12;66;119;66;12" dur="16s" repeatCount="indefinite"/></rect></g>
+</svg>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+    <tr>
+      <td></td>
+      <td width="720">
+        <table width="100%" cellpadding="16" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <td>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="8"></td>
+                </tr>
+              </table>
+              <nav aria-label="Breadcrumb"><font size="2"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#posts">Posts</a> &rsaquo; <span aria-current="page">HTML Tables: A Complete Guide</span></font></nav>
+              <article>
+                <header>
+                  <h1><font size="7">HTML Tables: A Complete Guide</font></h1>
+                  <p><font size="3" color="#6E7C78">By Suraj Aswal &middot; <time datetime="2024-03-05">5 March 2024</time> &middot; 8 min read</font></p>
+                  <p><font size="3" color="#6E7C78"><label for="lvl">Level</label> <meter id="lvl" min="0" max="3" low="1.5" high="2.5" optimum="0" value="2">Intermediate</meter> Intermediate &nbsp;&middot;&nbsp; <label for="series">Series</label> <progress id="series" max="4" value="3">Part 3 of 4</progress> Part 3 of 4</font></p>
+                </header>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="18" cellspacing="0" border="0" bgcolor="#EFE8DA" role="presentation">
+                        <tr>
+                          <td>
+                            <details open>
+                              <summary><b>On this page</b></summary>
+                              <ol>
+                                <li><a href="#intro">Tables are for data</a></li>
+                                <li><a href="#structure">The basic structure</a></li>
+                                <li><a href="#simple">A simple table</a></li>
+                                <li><a href="#sections">Captions and row groups</a></li>
+                                <li><a href="#spans">Spanning rows and columns</a></li>
+                                <li><a href="#styling">Styling without CSS</a></li>
+                                <li><a href="#practice">Good habits</a></li>
+                                <li><a href="#next">In short</a></li>
+                              </ol>
+                            </details>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
                 </table>
-            </td>
-        </tr>
-
-        <!-- Article Content -->
-        <tr>
-            <td colspan="3">
-                <table width="80%" cellpadding="20" cellspacing="0" border="0" align="center">
-                    <tr>
-                        <td bgcolor="#D5E5D5">
-                            <font face="Arial, sans-serif">
-                                <h2>Introduction to HTML Tables</h2>
-                                <p>HTML tables are powerful elements for displaying data in rows and columns. They're
-                                    essential for presenting structured information in a clear and organized way.</p>
-
-                                <h2>Basic Table Structure</h2>
-                                <p>Here's the basic structure of an HTML table:</p>
-                                <pre>
-&lt;table&gt;
-  &lt;tr&gt;              &lt;!-- Table Row --&gt;
-    &lt;th&gt;Header&lt;/th&gt;  &lt;!-- Table Header --&gt;
-    &lt;td&gt;Data&lt;/td&gt;    &lt;!-- Table Data --&gt;
+                <h2 id="intro">Tables are for data</h2>
+                <p><font size="4">A table shows information in rows and columns: timetables, prices, results. When the content has that shape, a table is the most accessible way to present it, because assistive technology can announce each cell with its headings.</font></p>
+                <h2 id="structure">The basic structure</h2>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="16" cellspacing="0" border="0" bgcolor="#EAF0EC" role="presentation">
+                        <tr>
+                          <td><pre><font size="3" color="#2F3D3B"><code>&lt;table&gt;
+  &lt;caption&gt;Opening hours&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th scope=&quot;col&quot;&gt;Day&lt;/th&gt;
+    &lt;th scope=&quot;col&quot;&gt;Hours&lt;/th&gt;
   &lt;/tr&gt;
-&lt;/table&gt;
-                </pre>
-
-                                <h2>Table Elements</h2>
-                                <h3>Basic Elements</h3>
-                                <ul>
-                                    <li>&lt;table&gt; - Defines a table</li>
-                                    <li>&lt;tr&gt; - Defines a table row</li>
-                                    <li>&lt;th&gt; - Defines a header cell</li>
-                                    <li>&lt;td&gt; - Defines a data cell</li>
-                                </ul>
-
-                                <h3>Advanced Elements</h3>
-                                <ul>
-                                    <li>&lt;caption&gt; - Adds a title to the table</li>
-                                    <li>&lt;thead&gt; - Groups header content</li>
-                                    <li>&lt;tbody&gt; - Groups body content</li>
-                                    <li>&lt;tfoot&gt; - Groups footer content</li>
-                                </ul>
-
-                                <h2>Table Examples</h2>
-                                <h3>Simple Table</h3>
-                                <table border="1" cellpadding="5">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Age</th>
-                                        <th>City</th>
-                                    </tr>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>25</td>
-                                        <td>New York</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sarah</td>
-                                        <td>30</td>
-                                        <td>London</td>
-                                    </tr>
-                                </table>
-
-                                <h3>Table with Caption and Sections</h3>
-                                <table border="1" cellpadding="5">
-                                    <caption>Monthly Sales Report</caption>
-                                    <thead>
-                                        <tr>
-                                            <th>Month</th>
-                                            <th>Sales</th>
-                                            <th>Profit</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>January</td>
-                                            <td>$1000</td>
-                                            <td>$200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>February</td>
-                                            <td>$1200</td>
-                                            <td>$240</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td>Total</td>
-                                            <td>$2200</td>
-                                            <td>$440</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-
-                                <h2>Table Attributes</h2>
-                                <h3>Common Attributes</h3>
-                                <ul>
-                                    <li>border - Adds borders to the table</li>
-                                    <li>cellpadding - Adds padding inside cells</li>
-                                    <li>cellspacing - Adds space between cells</li>
-                                    <li>width - Sets table width</li>
-                                    <li>align - Aligns the table</li>
-                                </ul>
-
-                                <h2>Complex Table Example</h2>
-                                <table border="1" cellpadding="5" width="100%">
-                                    <caption>Student Grades</caption>
-                                    <thead>
-                                        <tr>
-                                            <th rowspan="2">Student</th>
-                                            <th colspan="3">Subjects</th>
-                                            <th rowspan="2">Average</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Math</th>
-                                            <th>Science</th>
-                                            <th>English</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Alice</td>
-                                            <td>85</td>
-                                            <td>90</td>
-                                            <td>88</td>
-                                            <td>87.7</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bob</td>
-                                            <td>92</td>
-                                            <td>88</td>
-                                            <td>85</td>
-                                            <td>88.3</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <h2>Best Practices</h2>
-                                <ul>
-                                    <li>Use tables for tabular data only</li>
-                                    <li>Include proper headers</li>
-                                    <li>Add captions for context</li>
-                                    <li>Use semantic elements (thead, tbody, tfoot)</li>
-                                    <li>Ensure proper cell spacing and padding</li>
-                                    <li>Make tables responsive when possible</li>
-                                </ul>
-
-                                <h2>Accessibility Considerations</h2>
-                                <ul>
-                                    <li>Use proper header cells (th)</li>
-                                    <li>Add scope attributes to headers</li>
-                                    <li>Include alt text for table images</li>
-                                    <li>Ensure sufficient color contrast</li>
-                                    <li>Provide table summaries when needed</li>
-                                </ul>
-
-                                <h2>Conclusion</h2>
-                                <p>HTML tables are versatile elements that, when used correctly, can effectively present
-                                    structured data. By following best practices and considering accessibility, you can
-                                    create tables that are both functional and user-friendly.</p>
-
-                                <p><a href="../index.html">← Back to Home</a></p>
-                            </font>
-                        </td>
-                    </tr>
+  &lt;tr&gt;
+    &lt;td&gt;Monday&lt;/td&gt;
+    &lt;td&gt;9:00 to 17:00&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></font></pre></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
                 </table>
+                <dl>
+                  <dt><code>&lt;table&gt;</code></dt>
+                  <dd><font size="4">The table itself</font></dd>
+                  <dt><code>&lt;caption&gt;</code></dt>
+                  <dd><font size="4">A title, read first by screen readers</font></dd>
+                  <dt><code>&lt;thead / tbody / tfoot&gt;</code></dt>
+                  <dd><font size="4">Groups of header, body and footer rows</font></dd>
+                  <dt><code>&lt;tr&gt;</code></dt>
+                  <dd><font size="4">A row</font></dd>
+                  <dt><code>&lt;th&gt;</code></dt>
+                  <dd><font size="4">A header cell; add <code>scope</code> to say what it labels</font></dd>
+                  <dt><code>&lt;td&gt;</code></dt>
+                  <dd><font size="4">A data cell</font></dd>
+                </dl>
+                <h2 id="simple">A simple table</h2>
+                <p><font size="4">Soft horizontal lines come from <code>frame="void"</code> and <code>rules="rows"</code>, and alternating row colours from <code>bgcolor</code> on each <code>&lt;tr&gt;</code>:</font></p>
+                <table width="100%" border="1" frame="void" rules="rows" bordercolor="#D6DDD5" cellpadding="10" cellspacing="0">
+                  <tr bgcolor="#DCE6E0">
+                    <th scope="col" align="left">Name</th>
+                    <th scope="col" align="right">Age</th>
+                    <th scope="col" align="left">City</th>
+                  </tr>
+                  <tr>
+                    <td>Mira</td>
+                    <td align="right">25</td>
+                    <td>Kyoto</td>
+                  </tr>
+                  <tr bgcolor="#FCFBF8">
+                    <td>Tomas</td>
+                    <td align="right">30</td>
+                    <td>Lisbon</td>
+                  </tr>
+                  <tr>
+                    <td>Anaya</td>
+                    <td align="right">28</td>
+                    <td>Pune</td>
+                  </tr>
+                </table>
+                <h2 id="sections">Captions and row groups</h2>
+                <p><font size="4">With <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> and <code>&lt;tfoot&gt;</code> in place, <code>rules="groups"</code> draws a line only between the groups:</font></p>
+                <table width="100%" border="1" frame="hsides" rules="groups" bordercolor="#D6DDD5" cellpadding="10" cellspacing="0" bgcolor="#FFFFFF">
+                  <caption><font size="3"><b>Tea shop sales, first quarter</b></font></caption>
+                  <thead>
+                    <tr bgcolor="#DCE6E0">
+                      <th scope="col" align="left">Month</th>
+                      <th scope="col" align="right">Sales</th>
+                      <th scope="col" align="right">Profit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>January</td>
+                      <td align="right">$1,000</td>
+                      <td align="right">$200</td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <td>February</td>
+                      <td align="right">$1,200</td>
+                      <td align="right">$240</td>
+                    </tr>
+                    <tr>
+                      <td>March</td>
+                      <td align="right">$1,450</td>
+                      <td align="right">$310</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr bgcolor="#EFE8DA">
+                      <th scope="row" align="left">Total</th>
+                      <td align="right"><b>$3,650</b></td>
+                      <td align="right"><b>$750</b></td>
+                    </tr>
+                  </tfoot>
+                </table>
+                <h2 id="spans">Spanning rows and columns</h2>
+                <p><font size="4"><code>colspan</code> and <code>rowspan</code> let one header cover several columns or rows. <code>scope="colgroup"</code> and <code>scope="row"</code><sup><button type="button" popovertarget="fn1" aria-label="Footnote 1">1</button></sup><span id="fn1" popover><font size="3"><b>Footnote 1.</b> Without <code>scope</code>, screen readers guess which cells a header labels. With it, they know.</font></span> keep the relationships clear:</font></p>
+                <table width="100%" border="1" frame="hsides" rules="groups" bordercolor="#D6DDD5" cellpadding="10" cellspacing="0" bgcolor="#FFFFFF">
+                  <caption><font size="3"><b>Student grades</b></font></caption>
+                  <thead>
+                    <tr bgcolor="#DCE6E0">
+                      <th rowspan="2" scope="col" align="left" valign="bottom">Student</th>
+                      <th colspan="3" scope="colgroup">Subjects</th>
+                      <th rowspan="2" scope="col" align="right" valign="bottom">Average</th>
+                    </tr>
+                    <tr bgcolor="#DCE6E0">
+                      <th scope="col" align="right">Math</th>
+                      <th scope="col" align="right">Science</th>
+                      <th scope="col" align="right">English</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" align="left">Alice</th>
+                      <td align="right">85</td>
+                      <td align="right">90</td>
+                      <td align="right">88</td>
+                      <td align="right">87.7</td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <th scope="row" align="left">Bob</th>
+                      <td align="right">92</td>
+                      <td align="right">88</td>
+                      <td align="right">85</td>
+                      <td align="right">88.3</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" align="left">Chen</th>
+                      <td align="right">78</td>
+                      <td align="right">94</td>
+                      <td align="right">91</td>
+                      <td align="right">87.7</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h2 id="styling">Styling without CSS</h2>
+                <p><font size="4">Every table on this page is styled with attributes alone. Here they are, in a table of course:</font></p>
+                <table width="100%" border="1" frame="hsides" rules="rows" bordercolor="#D6DDD5" cellpadding="10" cellspacing="0">
+                  <caption><font size="2" color="#6E7C78">Presentational table attributes that still work in every browser</font></caption>
+                  <tr bgcolor="#DCE6E0">
+                    <th scope="col" align="left">Attribute</th>
+                    <th scope="col" align="left">What it does</th>
+                  </tr>
+                  <tr>
+                    <td><code>border</code></td>
+                    <td>Width of the outer border; also turns on cell borders</td>
+                  </tr>
+                  <tr bgcolor="#FCFBF8">
+                    <td><code>frame</code></td>
+                    <td>Which outer sides to draw: <code>void</code>, <code>hsides</code>, <code>box</code>&hellip;</td>
+                  </tr>
+                  <tr>
+                    <td><code>rules</code></td>
+                    <td>Which inner lines to draw: <code>rows</code>, <code>cols</code>, <code>groups</code>, <code>all</code></td>
+                  </tr>
+                  <tr bgcolor="#FCFBF8">
+                    <td><code>bordercolor</code></td>
+                    <td>The colour of those lines</td>
+                  </tr>
+                  <tr>
+                    <td><code>cellpadding</code></td>
+                    <td>Space inside every cell</td>
+                  </tr>
+                  <tr bgcolor="#FCFBF8">
+                    <td><code>cellspacing</code></td>
+                    <td>Space between cells</td>
+                  </tr>
+                  <tr>
+                    <td><code>bgcolor</code></td>
+                    <td>Background of a table, row or cell</td>
+                  </tr>
+                  <tr bgcolor="#FCFBF8">
+                    <td><code>align / valign</code></td>
+                    <td>Horizontal and vertical alignment</td>
+                  </tr>
+                  <tr>
+                    <td><code>width / height</code></td>
+                    <td>Preferred size, in pixels or percent</td>
+                  </tr>
+                </table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td height="12"></td>
+                  </tr>
+                </table>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#C7D5CC" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#DCE6E0" role="presentation">
+                        <tr>
+                          <td>
+                            <aside><font color="#4E7471"><b>Good to know</b></font><br>These attributes are obsolete for new websites, but the HTML standard still defines exactly how browsers must render them. That is why this whole blog can exist.</aside>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <h2 id="practice">Good habits</h2>
+                <ul>
+                  <li><font size="4">Use tables for tabular data, not page layout (this blog breaks that rule on purpose)</font></li>
+                  <li><font size="4">Always add a <code>&lt;caption&gt;</code></font></li>
+                  <li><font size="4">Use <code>&lt;th&gt;</code> with <code>scope</code> for every header</font></li>
+                  <li><font size="4">Right-align numbers so digits line up</font></li>
+                  <li><font size="4">Keep tables narrow enough to read on a phone</font></li>
+                </ul>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="26" cellspacing="0" border="0" bgcolor="#EFE8DA" role="presentation">
+                        <tr>
+                          <td><font color="#4E7471"><b>Try it yourself</b></font>
+                            <p><font size="4">Build a two-column table of your week: days on the left, one calm thing for each day on the right. Give it a caption.</font></p>
+                            <p><a href="#solution-1">Show the solution</a></p>
+                            <div id="solution-1" hidden="until-found">
+                              <hr size="1" noshade color="#D6DDD5">
+                              <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                                <tr>
+                                  <td>
+                                    <table width="100%" cellpadding="16" cellspacing="0" border="0" bgcolor="#EAF0EC" role="presentation">
+                                      <tr>
+                                        <td><pre><font size="3" color="#2F3D3B"><code>&lt;table border=&quot;1&quot; rules=&quot;rows&quot;
+  frame=&quot;hsides&quot; cellpadding=&quot;8&quot;&gt;
+  &lt;caption&gt;A calmer week&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th scope=&quot;col&quot;&gt;Day&lt;/th&gt;
+    &lt;th scope=&quot;col&quot;&gt;Calm thing&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Monday&lt;/td&gt;&lt;td&gt;A walk&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Tuesday&lt;/td&gt;&lt;td&gt;Tea&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></font></pre></td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <h2 id="next">In short</h2>
+                <p><font size="4">Give tables a caption, headers with scope and sensible groups, and they will serve every reader. Next up: <a href="html-forms.html">HTML Forms: A Complete Guide</a>.</font></p>
+              </article>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="24"></td>
+                </tr>
+              </table>
+              <hr size="1" noshade color="#D6DDD5">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="8"></td>
+                </tr>
+              </table>
+              <nav aria-label="More posts">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td width="50%" valign="top"><font size="2" color="#6E7C78">Previous</font><br><a href="semantic-html.html" rel="prev">&larr; The Art of Semantic HTML</a></td>
+                    <td width="50%" valign="top" align="right"><font size="2" color="#6E7C78">Next</font><br><a href="html-forms.html" rel="next">HTML Forms: A Complete Guide &rarr;</a></td>
+                  </tr>
+                </table>
+              </nav>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="16"></td>
+                </tr>
+              </table>
+              <p align="right"><font size="3"><a href="#top">Back to top &uarr;</a></font></p>
             </td>
-        </tr>
-
-        <!-- Footer -->
-        <tr>
-            <td bgcolor="#ADB2D4" colspan="3" align="center">
-                <font face="Arial, sans-serif" size="2" color="#FFFFFF">
-                    <p>© 2024 My Blog. All rights reserved.</p>
-                </font>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</main>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+  <tr>
+    <td height="40"></td>
+  </tr>
+</table>
+<footer>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#DCE6E0" role="presentation">
+    <tr>
+      <td></td>
+      <td width="1040">
+        <table width="100%" cellpadding="16" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <td>
+              <p align="center"><font size="3"><a href="../index.html">Home</a> &nbsp;&middot;&nbsp; <a href="../services.html">Services</a> &nbsp;&middot;&nbsp; <a href="../about.html">About</a> &nbsp;&middot;&nbsp; <a href="../contact.html">Contact</a></font></p>
+              <p align="center"><font size="2" color="#6E7C78">Access keys: <kbd>H</kbd> home, <kbd>S</kbd> services, <kbd>A</kbd> about, <kbd>C</kbd> contact. Press them with <kbd>Alt</kbd>, or <kbd>Alt</kbd>+<kbd>Shift</kbd>, depending on your browser.</font></p>
+              <p align="center"><font size="2" color="#6E7C78">&copy; 2024&ndash;2026 Suraj Aswal &middot; <a href="https://github.com/surajaswal29">GitHub</a><br>Made with HTML only. No CSS, no JavaScript, no hurry.</font></p>
             </td>
-        </tr>
-    </table>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</footer>
+</font>
 </body>
-
 </html>
