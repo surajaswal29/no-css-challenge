@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A gallery of designs built with only HTML and CSS: no JavaScript, no images.">
+  <title>CSS Miracles</title>
+  <style>
+    /* The flip side of the No CSS Challenge: everything, and only, CSS. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0b16;
+      --card: #16132a;
+      --text: #f1eeff;
+      --muted: #a39cc4;
+      --accent: #b69cff;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: clamp(1rem, 4vw, 3.5rem);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 10% 0%, rgba(124, 77, 255, 0.25), transparent 50%),
+        radial-gradient(ellipse at 90% 10%, rgba(255, 61, 154, 0.18), transparent 50%),
+        var(--bg);
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto clamp(2rem, 5vw, 4rem);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0.5rem 0 1rem;
+      font-size: clamp(2.5rem, 9vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      background: linear-gradient(90deg, #00e5a0, #00b0ff, #b69cff, #ff3d9a, #ffb74d, #00e5a0) 0 0 / 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 8s linear infinite;
+    }
+
+    .lead {
+      max-width: 60ch;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .lead a { color: var(--accent); }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      list-style: none;
+      counter-reset: piece;
+    }
+
+    .piece {
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: var(--card);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+      counter-increment: piece;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+    }
+
+    .piece:hover,
+    .piece:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 0 0 2px var(--accent), 0 20px 50px rgba(124, 77, 255, 0.3);
+    }
+
+    /* Live preview: the real page rendered at 1/3 scale. */
+    .preview {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .preview iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300%;
+      height: 300%;
+      border: 0;
+      transform: scale(calc(1 / 3));
+      transform-origin: 0 0;
+      pointer-events: none;
+    }
+
+    .info { padding: 1.1rem 1.25rem 1.3rem; }
+
+    .info h2 { font-size: 1.15rem; }
+    .info h2::before {
+      content: counter(piece, decimal-leading-zero) "  ";
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      white-space: pre;
+    }
+
+    .info p {
+      margin-top: 0.4rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+    }
+
+    .tags span {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      color: var(--accent);
+      background: rgba(182, 156, 255, 0.1);
+    }
+
+    /* The whole card is one link, stretched over everything. */
+    .info a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .info a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    .info a:focus-visible { outline: none; }
+
+    footer {
+      max-width: 1100px;
+      margin: 4rem auto 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    footer a { color: var(--accent); }
+
+    @keyframes shimmer { to { background-position: 200% 0; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      h1 { animation: none; }
+      .piece { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">The other side of the challenge</p>
+    <h1>CSS Miracles</h1>
+    <p class="lead">
+      The <a href="../index.html">No CSS Challenge</a> asked what HTML can do alone.
+      This gallery asks the opposite question. Every piece below uses only HTML and CSS:
+      no JavaScript, no images, no libraries. Open any of them and view the source.
+    </p>
+  </header>
+
+  <ul class="gallery">
+    <li class="piece">
+      <div class="preview"><iframe src="cube.html" title="Hypercube preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="cube.html">Hypercube</a></h2>
+        <p>A cube spinning inside a cube over a synthwave grid. Hover to freeze time.</p>
+        <div class="tags"><span>preserve-3d</span><span>perspective</span><span>mask-image</span></div>
+      </div>
+    </li>
+
+    <li class="piece">
+      <div class="preview"><iframe src="solar-system.html" title="Solar system preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="solar-system.html">Orrery</a></h2>
+        <p>Seven planets, a moon, and Saturn's rings on a tilted orbital plane.</p>
+        <div class="tags"><span>rotateX</span><span>custom properties</span><span>radial-gradient</span></div>
+      </div>
+    </li>
+
+    <li class="piece">
+      <div class="preview"><iframe src="landscape.html" title="Day to night landscape preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="landscape.html">Day to Night</a></h2>
+        <p>A full day in 20 seconds. Sun and moon share an axis while the sky's colours are animated.</p>
+        <div class="tags"><span>@property</span><span>clip-path</span><span>filter</span></div>
+      </div>
+    </li>
+
+    <li class="piece">
+      <div class="preview"><iframe src="interactive.html" title="Interactive components preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="interactive.html">Interactive, No JS</a></h2>
+        <p>Dark mode, tabs, star ratings, a flip card and a checklist that counts. All driven by form state.</p>
+        <div class="tags"><span>:has()</span><span>:checked</span><span>counters</span></div>
+      </div>
+    </li>
+
+    <li class="piece">
+      <div class="preview"><iframe src="neon.html" title="Neon sign preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="neon.html">Neon Nights</a></h2>
+        <p>A flickering neon café sign on a brick wall, with a glitching headline.</p>
+        <div class="tags"><span>text-shadow</span><span>attr()</span><span>clip-path</span></div>
+      </div>
+    </li>
+
+    <li class="piece">
+      <div class="preview"><iframe src="aurora.html" title="Aurora glass card preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="aurora.html">Aurora Glass</a></h2>
+        <p>A frosted-glass profile card with a rotating gradient border over drifting aurora light.</p>
+        <div class="tags"><span>backdrop-filter</span><span>mask-composite</span><span>conic-gradient</span></div>
+      </div>
+    </li>
+
+    <li class="piece">
+      <div class="preview"><iframe src="loaders.html" title="Loader collection preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="loaders.html">Loader Lab</a></h2>
+        <p>Twelve loading indicators, most of them a single element plus pseudo-elements.</p>
+        <div class="tags"><span>keyframes</span><span>background-size</span><span>border-radius</span></div>
+      </div>
+    </li>
+
+    <li class="piece">
+      <div class="preview"><iframe src="coffee.html" title="Coffee illustration preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="coffee.html">Morning Coffee</a></h2>
+        <p>A CSS illustration with rising steam and a latte-art heart that slowly turns.</p>
+        <div class="tags"><span>blur</span><span>skew</span><span>layered gradients</span></div>
+      </div>
+    </li>
+  </ul>
+
+  <footer>
+    Zero bytes of JavaScript were harmed in the making of this gallery. &middot;
+    <a href="../index.html">Back to the pure HTML blog</a>
+  </footer>
+</body>
+</html>
