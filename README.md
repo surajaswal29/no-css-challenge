@@ -12,11 +12,11 @@ webpage using only HTML elements.
 
 ```
 vanilla-HTML/
-├── index.html          # Main blog homepage
+├── index.html          # Blog homepage (pure HTML: no CSS, no JavaScript)
 ├── about.html          # About page
 ├── contact.html        # Contact page
 ├── services.html       # Services page
-├── posts/             # Directory containing blog posts
+├── posts/             # Four tutorial posts on HTML
 ├── portfolio/         # Business and product portfolio: HTML + CSS, zero JavaScript
 └── css-miracles/      # The opposite challenge: pure CSS, zero JavaScript
 ```
@@ -72,15 +72,36 @@ Every feature is progressive: older browsers still get a working, readable site.
 The contact form uses `mailto:` because a static site has no server; point its
 `action` at a form service to collect submissions.
 
-## Features
+## The Quiet Web: the blog (no CSS, no JavaScript)
 
-- Pure HTML implementation with no CSS dependencies
-- Responsive layout using HTML tables
-- Interactive navigation menu
-- Blog post listing with thumbnails
-- SVG-based illustrations and graphics
-- Contact form implementation
-- Semantic HTML structure for better accessibility
+The blog at the root (`index.html`, `about.html`, `services.html`,
+`contact.html` and `posts/`) uses **no CSS at all**: no `<style>`, no `style=""`
+attributes, no stylesheets. It uses no JavaScript either. Everything below is
+plain HTML (plus SVG markup):
+
+| What you see | How it is built |
+| --- | --- |
+| Sage, mist and sand colour scheme | `bgcolor`, `text`, `link` and `vlink` on `<body>`, tables and rows |
+| Serif reading type and sizes | `<font face>` and `<font size>` |
+| Centred reading column that fits phones | A table cell with `width="720"` between two empty cells |
+| Hairline card borders | A 1px `cellpadding` in the line colour around an inner table |
+| Drifting clouds, a glowing sun, a breathing circle | SVG with SMIL animation (`<animate>`, `<animateTransform>`, `<animateMotion>`) |
+| "Take a mindful minute" modal | `<dialog>` opened by `<button commandfor command="show-modal">` |
+| Footnotes | `popover` + `popovertarget` |
+| Accordions, one open at a time | `<details name>` |
+| Exercise solutions revealed by a link | `hidden="until-found"` + a `#fragment` link |
+| Live code previews | `<iframe srcdoc sandbox>` |
+| "Download this page" | `<a download href="data:…">` |
+| Soft data tables | `frame`, `rules`, `bordercolor`, `cellpadding`, `scope`, `<caption>` |
+| Level and series progress | `<meter>` and `<progress>` |
+| Form validation and demos that never leave the page | `required`, `pattern`, `minlength`, `<datalist>`, `method="dialog"` |
+| Keyboard shortcuts | `accesskey` on the main navigation |
+| Site search | `<search>` with a GET form to DuckDuckGo |
+
+Attributes such as `bgcolor` and `<font>` are obsolete for authors, but the HTML
+standard still defines how browsers render them, so they work in every browser.
+SMIL animations don't follow the operating system's reduced-motion setting, so
+all motion here is slow and subtle.
 
 ## Getting Started
 
@@ -93,9 +114,9 @@ The contact form uses `mailto:` because a static site has no server; point its
 
 ## Technologies Used
 
-- HTML5
-- SVG for graphics and illustrations
-- HTML Tables for layout
+- HTML (the living standard), including `<dialog>`, `popover`, `<details name>` and `<search>`
+- SVG with SMIL animation for illustrations and motion
+- HTML tables and presentational attributes for layout and colour
 - Semantic HTML elements
 
 ## License

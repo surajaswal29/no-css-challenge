@@ -1,193 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>HTML Forms: A Complete Guide | My Blog</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about HTML forms and their implementation">
-    <meta name="author" content="Blog Author">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML Forms: A Complete Guide | The Quiet Web</title>
+  <meta name="description" content="Labels, fieldsets, modern input types and validation the browser does for you. No JavaScript required.">
+  <meta name="author" content="Suraj Aswal">
+  <meta name="theme-color" content="#DCE6E0">
+  <meta name="generator" content="Hand-written HTML. No CSS, no JavaScript.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23DCE6E0'/%3E%3Cpath d='M4 22c6-6 10-6 14-2s8 2 10-2v10H4z' fill='%234E7471'/%3E%3Ccircle cx='21' cy='11' r='4' fill='%23F3CFA6'/%3E%3C/svg%3E">
 </head>
-
-<body bgcolor="#EEF1DA" alink="#000" link="#000" vlink="#000">
-    <table width="100%" cellpadding="15" border="0" cellspacing="0">
-        <!-- Header -->
-        <tr>
-            <td bgcolor="#ADB2D4" height="40px" colspan="3">
-                <nav align="center">
-                    <font size="4" face="Arial, sans-serif" color="#FFFFFF">
-                        <a href="../index.html"><b>Home</b></a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="../about.html" style="color: #FFFFFF">About</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="../contact.html" style="color: #FFFFFF">Contact</a>
-                    </font>
-                </nav>
+<body bgcolor="#F5F2EB" text="#3D4A48" link="#4E7471" vlink="#7A6A8A" alink="#2F5456" marginwidth="0" marginheight="0">
+<font face="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif">
+<header id="top">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#DCE6E0" role="presentation">
+    <tr>
+      <td></td>
+      <td width="1040">
+        <table width="100%" cellpadding="16" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <td>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td valign="middle"><a href="../index.html">
+                    <table cellpadding="0" cellspacing="0" border="0" role="presentation">
+                      <tr>
+                        <td><svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#F5F2EB"/><path d="M4 22c6-6 10-6 14-2s8 2 10-2v10H4z" fill="#4E7471"/><circle cx="21" cy="11" r="4" fill="#F3CFA6"><animate attributeName="r" values="3.5;4.5;3.5" dur="8s" repeatCount="indefinite"/></circle></svg></td>
+                        <td width="10"></td>
+                        <td><font size="5" color="#3D4A48"><b>The Quiet Web</b></font></td>
+                      </tr>
+                    </table>
+                    </a>
+                  </td>
+                  <td align="right" valign="middle">
+                    <nav aria-label="Main"><font size="3"><a href="../index.html" accesskey="h">Home</a> &nbsp;&middot;&nbsp; <a href="../services.html" accesskey="s">Services</a> &nbsp;&middot;&nbsp; <a href="../about.html" accesskey="a">About</a> &nbsp;&middot;&nbsp; <a href="../contact.html" accesskey="c">Contact</a></font></nav>
+                  </td>
+                </tr>
+              </table>
             </td>
-        </tr>
-
-        <!-- Main Content -->
-        <tr>
-            <td colspan="3" align="center">
-                <table width="100%" cellpadding="20" cellspacing="0" border="0">
-                    <tr>
-                        <td bgcolor="#C7D9DD" align="center">
-                            <svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="100%" height="100%" fill="#ADB2D4" />
-                                <!-- Decorative elements -->
-                                <circle cx="200" cy="200" r="80" fill="#C7D9DD" opacity="0.5" />
-                                <circle cx="1000" cy="200" r="80" fill="#C7D9DD" opacity="0.5" />
-                                <!-- Main design - represents forms -->
-                                <rect x="400" y="100" width="400" height="200" fill="#D5E5D5" opacity="0.8" />
-                                <rect x="420" y="120" width="360" height="30" fill="#ADB2D4" opacity="0.7" />
-                                <rect x="420" y="160" width="360" height="30" fill="#ADB2D4" opacity="0.7" />
-                                <rect x="420" y="200" width="360" height="30" fill="#ADB2D4" opacity="0.7" />
-                                <rect x="420" y="240" width="180" height="30" fill="#ADB2D4" opacity="0.7" />
-                            </svg>
-                            <font face="Arial, sans-serif" size="7">
-                                <h1>HTML Forms: A Complete Guide</h1>
-                            </font>
-                            <font face="Arial, sans-serif" size="4">
-                                <p>Learn how to create interactive forms using pure HTML</p>
-                            </font>
-                        </td>
-                    </tr>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</header>
+<main id="main">
+<svg width="100%" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration for HTML Forms: A Complete Guide">
+  <defs><linearGradient id="bandsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4ECEC"/><stop offset="1" stop-color="#F5F2EB"/></linearGradient></defs>
+  <rect width="1200" height="220" fill="url(#bandsky)"/>
+  <g opacity="0.8"><animateTransform attributeName="transform" type="translate" from="-260 0" to="1460 0" dur="170s" begin="-60s" repeatCount="indefinite"/><g transform="translate(300 60) scale(0.7)" fill="#FFFFFF"><ellipse cx="0" cy="0" rx="60" ry="22"/><ellipse cx="-34" cy="6" rx="38" ry="16"/><ellipse cx="38" cy="4" rx="44" ry="18"/><ellipse cx="6" cy="-14" rx="34" ry="20"/></g></g>
+  <g opacity="0.7"><animateTransform attributeName="transform" type="translate" from="-260 0" to="1460 0" dur="200s" begin="-150s" repeatCount="indefinite"/><g transform="translate(900 90) scale(0.55)" fill="#FFFFFF"><ellipse cx="0" cy="0" rx="60" ry="22"/><ellipse cx="-34" cy="6" rx="38" ry="16"/><ellipse cx="38" cy="4" rx="44" ry="18"/><ellipse cx="6" cy="-14" rx="34" ry="20"/></g></g>
+  <path d="M0 175 C 200 140 380 150 560 175 S 900 150 1200 170 V220 H0Z" fill="#C9D8CD"/>
+  <path d="M0 195 C 260 175 520 185 760 200 S 1060 185 1200 195 V220 H0Z" fill="#B3C8BA"/>
+  <g transform="translate(900 20)"><rect x="10" y="12" width="160" height="22" rx="11" fill="#FCFBF8" stroke="#D6DDD5"/>
+      <rect x="10" y="44" width="160" height="22" rx="11" fill="#FCFBF8" stroke="#D6DDD5"/>
+      <rect x="20" y="50" width="2" height="10" fill="#4E7471"><animate attributeName="x" values="20;120;120;20" keyTimes="0;0.6;0.9;1" dur="8s" repeatCount="indefinite"/></rect>
+      <rect x="10" y="80" width="18" height="18" rx="5" fill="#DCE6E0" stroke="#4E7471"/>
+      <path d="M14 89 l4 4 l7 -9" fill="none" stroke="#4E7471" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="36" y="85" width="80" height="8" rx="4" fill="#C9D8CD"/>
+      <rect x="10" y="112" width="84" height="28" rx="14" fill="#4E7471"/></g>
+</svg>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+    <tr>
+      <td></td>
+      <td width="720">
+        <table width="100%" cellpadding="16" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <td>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="8"></td>
+                </tr>
+              </table>
+              <nav aria-label="Breadcrumb"><font size="2"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#posts">Posts</a> &rsaquo; <span aria-current="page">HTML Forms: A Complete Guide</span></font></nav>
+              <article>
+                <header>
+                  <h1><font size="7">HTML Forms: A Complete Guide</font></h1>
+                  <p><font size="3" color="#6E7C78">By Suraj Aswal &middot; <time datetime="2024-03-05">5 March 2024</time> &middot; 9 min read</font></p>
+                  <p><font size="3" color="#6E7C78"><label for="lvl">Level</label> <meter id="lvl" min="0" max="3" low="1.5" high="2.5" optimum="0" value="2">Intermediate</meter> Intermediate &nbsp;&middot;&nbsp; <label for="series">Series</label> <progress id="series" max="4" value="4">Part 4 of 4</progress> Part 4 of 4</font></p>
+                </header>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="18" cellspacing="0" border="0" bgcolor="#EFE8DA" role="presentation">
+                        <tr>
+                          <td>
+                            <details open>
+                              <summary><b>On this page</b></summary>
+                              <ol>
+                                <li><a href="#intro">Why forms matter</a></li>
+                                <li><a href="#structure">The basic structure</a></li>
+                                <li><a href="#choices">Choices: radios, checkboxes and selects</a></li>
+                                <li><a href="#types">Modern input types</a></li>
+                                <li><a href="#suggest">Suggestions with datalist</a></li>
+                                <li><a href="#validation">Validation the browser does for you</a></li>
+                                <li><a href="#meters">Showing progress</a></li>
+                                <li><a href="#complete">A complete form, in a dialog</a></li>
+                                <li><a href="#practice">Good habits</a></li>
+                                <li><a href="#end">The end of the series</a></li>
+                              </ol>
+                            </details>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
                 </table>
-            </td>
-        </tr>
-
-        <!-- Article Content -->
-        <tr>
-            <td colspan="3">
-                <table width="80%" cellpadding="20" cellspacing="0" border="0" align="center">
+                <h2 id="intro">Why forms matter</h2>
+                <p><font size="4">Forms are how a page listens: sign-ups, searches, orders and messages. HTML gives you labelled controls, keyboard support and validation for free. Every example on this page works without a line of JavaScript.</font></p>
+                <h2 id="structure">The basic structure</h2>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="16" cellspacing="0" border="0" bgcolor="#EAF0EC" role="presentation">
+                        <tr>
+                          <td><pre><font size="3" color="#2F3D3B"><code>&lt;form action=&quot;/subscribe&quot;
+      method=&quot;post&quot;&gt;
+  &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+  &lt;input type=&quot;email&quot; id=&quot;email&quot;
+         name=&quot;email&quot; required&gt;
+  &lt;button type=&quot;submit&quot;&gt;
+    Subscribe&lt;/button&gt;
+&lt;/form&gt;</code></font></pre></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <p><font size="4">The <code>for</code> attribute ties a label to its control, so clicking the words focuses the field and screen readers read them aloud.</font></p>
+                <h2 id="choices">Choices: radios, checkboxes and selects</h2>
+                <form method="dialog">
+                  <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
                     <tr>
-                        <td bgcolor="#D5E5D5">
-                            <font face="Arial, sans-serif">
-                                <h2>Introduction to HTML Forms</h2>
-                                <p>HTML forms are essential elements for collecting user input on web pages. They allow
-                                    users to submit data to a server for processing. In this guide, we'll explore the
-                                    various form elements and how to use them effectively.</p>
-
-                                <h2>Basic Form Structure</h2>
-                                <p>Here's a simple example of a basic form structure:</p>
-                                <pre>
-&lt;form action="/submit" method="post"&gt;
-  &lt;label for="name"&gt;Name:&lt;/label&gt;
-  &lt;input type="text" id="name" name="name"&gt;
-  
-  &lt;label for="email"&gt;Email:&lt;/label&gt;
-  &lt;input type="email" id="email" name="email"&gt;
-  
-  &lt;input type="submit" value="Submit"&gt;
-&lt;/form&gt;
-                </pre>
-
-                                <h2>Common Form Elements</h2>
-                                <h3>Text Input</h3>
-                                <p>The most basic form element is the text input:</p>
-                                <form action="#" method="post">
-                                    <label for="example-text">Text Input:</label><br>
-                                    <input type="text" id="example-text" name="example-text" size="40">
-                                </form>
-
-                                <h3>Radio Buttons</h3>
-                                <p>Radio buttons allow users to select one option from a group:</p>
-                                <form action="#" method="post">
-                                    <input type="radio" id="option1" name="options" value="option1">
-                                    <label for="option1">Option 1</label><br>
-                                    <input type="radio" id="option2" name="options" value="option2">
-                                    <label for="option2">Option 2</label><br>
-                                    <input type="radio" id="option3" name="options" value="option3">
-                                    <label for="option3">Option 3</label>
-                                </form>
-
-                                <h3>Checkboxes</h3>
-                                <p>Checkboxes allow users to select multiple options:</p>
-                                <form action="#" method="post">
-                                    <input type="checkbox" id="check1" name="checks" value="check1">
-                                    <label for="check1">Checkbox 1</label><br>
-                                    <input type="checkbox" id="check2" name="checks" value="check2">
-                                    <label for="check2">Checkbox 2</label><br>
-                                    <input type="checkbox" id="check3" name="checks" value="check3">
-                                    <label for="check3">Checkbox 3</label>
-                                </form>
-
-                                <h3>Select Dropdown</h3>
-                                <p>Dropdown menus allow users to select from a list of options:</p>
-                                <form action="#" method="post">
-                                    <select name="dropdown" id="dropdown">
-                                        <option value="option1">Option 1</option>
-                                        <option value="option2">Option 2</option>
-                                        <option value="option3">Option 3</option>
-                                    </select>
-                                </form>
-
-                                <h2>Form Best Practices</h2>
-                                <ul>
-                                    <li>Always use labels for form elements</li>
-                                    <li>Group related form elements</li>
-                                    <li>Provide clear instructions</li>
-                                    <li>Use appropriate input types</li>
-                                    <li>Include validation where necessary</li>
-                                </ul>
-
-                                <h2>Complete Example</h2>
-                                <p>Here's a complete form example combining various elements:</p>
-                                <form action="#" method="post">
-                                    <table cellspacing="10">
-                                        <tr>
-                                            <td><label for="fullname">Full Name:</label></td>
-                                            <td><input type="text" id="fullname" name="fullname" size="40"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="useremail">Email:</label></td>
-                                            <td><input type="email" id="useremail" name="useremail" size="40"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="message">Message:</label></td>
-                                            <td><textarea id="message" name="message" rows="5" cols="40"></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><label>Interests:</label></td>
-                                            <td>
-                                                <input type="checkbox" id="interest1" name="interests" value="web">
-                                                <label for="interest1">Web Development</label><br>
-                                                <input type="checkbox" id="interest2" name="interests" value="design">
-                                                <label for="interest2">Design</label><br>
-                                                <input type="checkbox" id="interest3" name="interests" value="other">
-                                                <label for="interest3">Other</label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td><input type="submit" value="Submit Form"></td>
-                                        </tr>
+                      <td>
+                        <table width="100%" cellpadding="26" cellspacing="0" border="0" bgcolor="#FFFFFF" role="presentation">
+                          <tr>
+                            <td>
+                              <fieldset>
+                                <legend><b>How do you like your tea?</b></legend>
+                                <label><input type="radio" name="tea" value="green" checked> Green</label><br><label><input type="radio" name="tea" value="black"> Black</label><br><label><input type="radio" name="tea" value="herbal"> Herbal</label>
+                              </fieldset>
+                              <br>
+                              <fieldset>
+                                <legend><b>Add</b></legend>
+                                <label><input type="checkbox" name="add" value="honey"> Honey</label><br><label><input type="checkbox" name="add" value="lemon"> Lemon</label><br><label><input type="checkbox" name="add" value="quiet" checked> A quiet moment</label>
+                              </fieldset>
+                              <p><label for="cup">Cup size</label>
+                                <select id="cup" name="cup">
+                                  <option>Small</option>
+                                  <option selected>Medium</option>
+                                  <option>Large</option>
+                                </select>
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </form>
+                <p><font size="4">Radio buttons that share a <code>name</code> allow one choice; checkboxes allow many. <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> group them under a question.</font></p>
+                <h2 id="types">Modern input types</h2>
+                <p><font size="4">The <code>type</code> attribute brings the right keyboard on phones and the right picker on desktops:</font></p>
+                <form method="dialog">
+                  <table width="100%" border="1" frame="hsides" rules="rows" bordercolor="#D6DDD5" cellpadding="10" cellspacing="0">
+                    <caption><font size="2" color="#6E7C78">Each of these is a real control. Try them.</font></caption>
+                    <tr bgcolor="#DCE6E0">
+                      <th scope="col" align="left">Type</th>
+                      <th scope="col" align="left">Control</th>
+                    </tr>
+                    <tr>
+                      <td><label for="it-date"><code>date</code></label></td>
+                      <td><input type="date" id="it-date" name="date"></td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <td><label for="it-time"><code>time</code></label></td>
+                      <td><input type="time" id="it-time" name="time"></td>
+                    </tr>
+                    <tr>
+                      <td><label for="it-color"><code>color</code></label></td>
+                      <td><input type="color" id="it-color" name="color" value="#4E7471"></td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <td><label for="it-range"><code>range</code></label></td>
+                      <td><input type="range" id="it-range" name="range" min="0" max="10" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td><label for="it-number"><code>number</code></label></td>
+                      <td><input type="number" id="it-number" name="number" min="1" max="10" value="3" size="6"></td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <td><label for="it-email"><code>email</code></label></td>
+                      <td><input type="email" id="it-email" name="email" size="16" placeholder="you@example.com"></td>
+                    </tr>
+                    <tr>
+                      <td><label for="it-url"><code>url</code></label></td>
+                      <td><input type="url" id="it-url" name="url" size="16" placeholder="https://"></td>
+                    </tr>
+                    <tr bgcolor="#FCFBF8">
+                      <td><label for="it-tel"><code>tel</code></label></td>
+                      <td><input type="tel" id="it-tel" name="tel" size="16" placeholder="+1 555 0100"></td>
+                    </tr>
+                    <tr>
+                      <td><label for="it-search"><code>search</code></label></td>
+                      <td><input type="search" id="it-search" name="search" size="16"></td>
+                    </tr>
+                  </table>
+                </form>
+                <h2 id="suggest">Suggestions with datalist</h2>
+                <form method="dialog">
+                  <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                    <tr>
+                      <td>
+                        <table width="100%" cellpadding="26" cellspacing="0" border="0" bgcolor="#FFFFFF" role="presentation">
+                          <tr>
+                            <td><label for="mood">How are you feeling?</label><br><input id="mood" name="mood" list="moods" size="26" placeholder="Start typing&hellip;">
+                              <datalist id="moods">
+                                <option value="Calm"></option>
+                                <option value="Curious"></option>
+                                <option value="Rested"></option>
+                                <option value="Hopeful"></option>
+                                <option value="Tired, but okay"></option>
+                              </datalist>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </form>
+                <p><font size="4">A <code>&lt;datalist&gt;</code> offers suggestions but still lets people type their own answer.</font></p>
+                <h2 id="validation">Validation the browser does for you</h2>
+                <form method="dialog">
+                  <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                    <tr>
+                      <td>
+                        <table width="100%" cellpadding="26" cellspacing="0" border="0" bgcolor="#FFFFFF" role="presentation">
+                          <tr>
+                            <td>
+                              <p><label for="v-name">Name (at least 2 letters)</label><br><input id="v-name" name="n" size="24" required minlength="2"></p>
+                              <p><label for="v-code">Postcode (5 digits)</label><br><input id="v-code" name="c" size="10" inputmode="numeric" pattern="[0-9]{5}" title="Five digits, like 12345"></p>
+                              <p><label for="v-age">Age (18 to 120)</label><br><input id="v-age" name="a" type="number" min="18" max="120"></p>
+                              <p><button type="submit">Check my answers</button></p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </form>
+                <p><font size="4">Press the button with empty or wrong values to see the browser's messages. The rules come from <code>required</code>, <code>minlength</code>, <code>pattern</code>, <code>min</code> and <code>max</code>.</font></p>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#C7D5CC" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#DCE6E0" role="presentation">
+                        <tr>
+                          <td>
+                            <aside><font color="#4E7471"><b>Behind the scenes</b></font><br>This demo uses <code>method="dialog"</code>, which runs validation but never leaves the page. On a real site you would use <code>action</code> and <code>method="post"</code>.</aside>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <h2 id="meters">Showing progress</h2>
+                <p><font size="4">Two quiet elements show values without any form at all:</font></p>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="26" cellspacing="0" border="0" bgcolor="#FFFFFF" role="presentation">
+                        <tr>
+                          <td>
+                            <p><label for="m1">Tea left in the pot</label><br><meter id="m1" min="0" max="100" low="25" high="75" optimum="80" value="60">60%</meter> 60%</p>
+                            <p><label for="p1">Reading this series</label><br><progress id="p1" max="4" value="4">4 of 4</progress> Finished. Well done.</p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <h2 id="complete">A complete form, in a dialog</h2>
+                <p><font size="4">The button below opens a <code>&lt;dialog&gt;</code> using <code>commandfor</code> and <code>command="show-modal"</code>: a modal window with no script.</font></p>
+                <p><button type="button" commandfor="try-form" command="show-modal">Open the form</button></p>
+                <h2 id="practice">Good habits</h2>
+                <ul>
+                  <li><font size="4">Label every control, and keep the label visible</font></li>
+                  <li><font size="4">Group related controls with <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code></font></li>
+                  <li><font size="4">Choose the most specific <code>type</code></font></li>
+                  <li><font size="4">Add <code>autocomplete</code> so browsers can fill in known details</font></li>
+                  <li><font size="4">Validate with attributes first; the server should still check everything</font></li>
+                </ul>
+                <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                  <tr>
+                    <td>
+                      <table width="100%" cellpadding="26" cellspacing="0" border="0" bgcolor="#EFE8DA" role="presentation">
+                        <tr>
+                          <td><font color="#4E7471"><b>Try it yourself</b></font>
+                            <p><font size="4">Write an input for a four-digit PIN that is required and only accepts digits.</font></p>
+                            <p><a href="#solution-1">Show the solution</a></p>
+                            <div id="solution-1" hidden="until-found">
+                              <hr size="1" noshade color="#D6DDD5">
+                              <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#D6DDD5" role="presentation">
+                                <tr>
+                                  <td>
+                                    <table width="100%" cellpadding="16" cellspacing="0" border="0" bgcolor="#EAF0EC" role="presentation">
+                                      <tr>
+                                        <td><pre><font size="3" color="#2F3D3B"><code>&lt;label for=&quot;pin&quot;&gt;PIN&lt;/label&gt;
+&lt;input id=&quot;pin&quot; name=&quot;pin&quot;
+       inputmode=&quot;numeric&quot;
+       pattern=&quot;[0-9]{4}&quot;
+       maxlength=&quot;4&quot; required&gt;</code></font></pre></td>
+                                      </tr>
                                     </table>
-                                </form>
-
-                                <h2>Conclusion</h2>
-                                <p>HTML forms are powerful tools for collecting user input. By understanding the various
-                                    form elements and their proper usage, you can create effective and user-friendly
-                                    forms for your website.</p>
-
-                                <p><a href="../index.html">← Back to Home</a></p>
-                            </font>
-                        </td>
-                    </tr>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
                 </table>
+                <h2 id="end">The end of the series</h2>
+                <p><font size="4">That is the whole series. With structure, meaning, tables and forms you can build almost anything the web needs, calmly and quickly. Thank you for reading. <a href="../index.html">Back to the home page</a>.</font></p>
+              </article>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="24"></td>
+                </tr>
+              </table>
+              <hr size="1" noshade color="#D6DDD5">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="8"></td>
+                </tr>
+              </table>
+              <nav aria-label="More posts">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <td width="50%" valign="top"><font size="2" color="#6E7C78">Previous</font><br><a href="html-tables.html" rel="prev">&larr; HTML Tables: A Complete Guide</a></td>
+                    <td width="50%" valign="top" align="right"></td>
+                  </tr>
+                </table>
+              </nav>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr>
+                  <td height="16"></td>
+                </tr>
+              </table>
+              <p align="right"><font size="3"><a href="#top">Back to top &uarr;</a></font></p>
             </td>
-        </tr>
-
-        <!-- Footer -->
-        <tr>
-            <td bgcolor="#ADB2D4" colspan="3" align="center">
-                <font face="Arial, sans-serif" size="2" color="#FFFFFF">
-                    <p>© 2024 My Blog. All rights reserved.</p>
-                </font>
-            </td>
-        </tr>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+  <dialog id="try-form" closedby="any" aria-labelledby="try-form-title">
+    <table cellpadding="16" cellspacing="0" border="0" bgcolor="#F5F2EB" role="presentation">
+      <tr>
+        <td>
+    <font face="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" color="#3D4A48">
+          <h2 id="try-form-title">Try the complete form</h2>
+          <p><font size="3">Leave a required field empty and press Submit: the browser explains what is missing.
+      Fill it in and the dialog closes, because the form uses <code>method="dialog"</code>.</font></p>
+          <form method="dialog">
+            <fieldset>
+              <legend><b>A calm little sign-up</b></legend>
+              <p><label for="ff-name">Full name</label><br><input id="ff-name" name="name" size="24" autocomplete="name" required></p>
+              <p><label for="ff-email">Email</label><br><input id="ff-email" type="email" name="email" size="24" autocomplete="email" required></p>
+              <p><label for="ff-day">Favourite time to read</label><br>
+                <select id="ff-day" name="when">
+                  <optgroup label="Morning">
+                    <option>With coffee</option>
+                    <option>On the train</option>
+                  </optgroup>
+                  <optgroup label="Evening">
+                    <option>After dinner</option>
+                    <option>Before bed</option>
+                  </optgroup>
+                </select>
+              </p>
+              <p>Interests<br>
+          <label><input type="checkbox" name="i" value="html" checked> HTML</label><br>
+          <label><input type="checkbox" name="i" value="design"> Design</label><br>
+          <label><input type="checkbox" name="i" value="slow"> Slow living</label></p>
+              <p><label for="ff-msg">Anything else?</label><br><textarea id="ff-msg" name="msg" rows="3" cols="30"></textarea></p>
+            </fieldset>
+            <p><button type="submit" value="sent">Submit</button> &nbsp;
+         <button type="submit" value="cancel" formnovalidate>Cancel</button></p>
+          </form>
+          </font>
+        </td>
+      </tr>
     </table>
+  </dialog>
+</main>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+  <tr>
+    <td height="40"></td>
+  </tr>
+</table>
+<footer>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#DCE6E0" role="presentation">
+    <tr>
+      <td></td>
+      <td width="1040">
+        <table width="100%" cellpadding="16" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <td>
+              <p align="center"><font size="3"><a href="../index.html">Home</a> &nbsp;&middot;&nbsp; <a href="../services.html">Services</a> &nbsp;&middot;&nbsp; <a href="../about.html">About</a> &nbsp;&middot;&nbsp; <a href="../contact.html">Contact</a></font></p>
+              <p align="center"><font size="2" color="#6E7C78">Access keys: <kbd>H</kbd> home, <kbd>S</kbd> services, <kbd>A</kbd> about, <kbd>C</kbd> contact. Press them with <kbd>Alt</kbd>, or <kbd>Alt</kbd>+<kbd>Shift</kbd>, depending on your browser.</font></p>
+              <p align="center"><font size="2" color="#6E7C78">&copy; 2024&ndash;2026 Suraj Aswal &middot; <a href="https://github.com/surajaswal29">GitHub</a><br>Made with HTML only. No CSS, no JavaScript, no hurry.</font></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</footer>
+</font>
 </body>
-
 </html>
