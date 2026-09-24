@@ -69,8 +69,21 @@
       max-width: 1100px;
       margin: 0 auto;
       list-style: none;
-      counter-reset: piece;
     }
+
+    main { counter-reset: piece; }
+
+    .section-title {
+      max-width: 1100px;
+      margin: 4rem auto 1.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .section-title h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); }
+    .section-title p { color: var(--muted); }
 
     .piece {
       position: relative;
@@ -117,6 +130,8 @@
       font-variant-numeric: tabular-nums;
       white-space: pre;
     }
+
+    .info code { color: var(--accent); font-size: 0.85em; }
 
     .info p {
       margin-top: 0.4rem;
@@ -184,6 +199,8 @@
     </p>
   </header>
 
+  <main>
+  <div class="section-title"><h2>Showcase</h2><p>3D, illustration, interaction and type.</p></div>
   <ul class="gallery">
     <li class="piece">
       <div class="preview"><iframe src="cube.html" title="Hypercube preview" loading="lazy" tabindex="-1"></iframe></div>
@@ -257,6 +274,75 @@
       </div>
     </li>
   </ul>
+
+  <div class="section-title"><h2>Calm &amp; Advanced</h2><p>Soothing motion and modern CSS features.</p></div>
+  <ul class="gallery">
+    <li class="piece">
+      <div class="preview"><iframe src="breathe.html" title="Breathe preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="breathe.html">Breathe</a></h2>
+        <p>A guided box-breathing flower. The spoken cue is animated with the <code>content</code> property.</p>
+        <div class="tags"><span>@property</span><span>content keyframes</span><span>mix-blend-mode</span></div>
+      </div>
+    </li>
+    <li class="piece">
+      <div class="preview"><iframe src="ocean.html" title="Moonlit Ocean preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="ocean.html">Moonlit Ocean</a></h2>
+        <p>Layered wave strips rolling under a full moon, with a shimmering reflection and a drifting sailboat.</p>
+        <div class="tags"><span>tiled gradients</span><span>mask-image</span><span>blend modes</span></div>
+      </div>
+    </li>
+    <li class="piece">
+      <div class="preview"><iframe src="rain.html" title="Rainy Window preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="rain.html">Rainy Window</a></h2>
+        <p>Bokeh city lights behind a wet, fogged pane. Drops cling, then slide.</p>
+        <div class="tags"><span>backdrop-filter</span><span>repeating gradients</span><span>blur</span></div>
+      </div>
+    </li>
+    <li class="piece">
+      <div class="preview"><iframe src="fireflies.html" title="Fireflies preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="fireflies.html">Fireflies</a></h2>
+        <p>A dusk meadow where every firefly has its own drift path and blink rhythm.</p>
+        <div class="tags"><span>custom properties</span><span>multiple animations</span><span>conic trees</span></div>
+      </div>
+    </li>
+    <li class="piece">
+      <div class="preview"><iframe src="lava-lamp.html" title="Lava Lamp preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="lava-lamp.html">Lava Lamp</a></h2>
+        <p>Wax blobs that rise, stretch and melt into each other using the gooey metaball trick.</p>
+        <div class="tags"><span>filter: contrast</span><span>blur</span><span>multiply</span></div>
+      </div>
+    </li>
+    <li class="piece">
+      <div class="preview"><iframe src="hypnosis.html" title="Hypnosis preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="hypnosis.html">Hypnosis</a></h2>
+        <p>A golden-angle sunflower, a pendulum wave and a twisting tunnel.</p>
+        <div class="tags"><span>sqrt()</span><span>calc() timing</span><span>staggered delays</span></div>
+      </div>
+    </li>
+    <li class="piece">
+      <div class="preview"><iframe src="patterns.html" title="Pattern Library preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="patterns.html">Pattern Library</a></h2>
+        <p>Twelve seamless patterns, each a single background, from seigaiha to moir&eacute;.</p>
+        <div class="tags"><span>conic-gradient</span><span>repeating-radial</span><span>@property</span></div>
+      </div>
+    </li>
+    <li class="piece">
+      <div class="preview"><iframe src="scroll.html" title="Scroll Story preview" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="info">
+        <h2><a href="scroll.html">Scroll Story</a></h2>
+        <p>A sunset, reveals and a sideways gallery, all driven by the scrollbar.</p>
+        <div class="tags"><span>animation-timeline</span><span>view()</span><span>scroll()</span></div>
+      </div>
+    </li>
+  </ul>
+  </main>
 
   <footer>
     Zero bytes of JavaScript were harmed in the making of this gallery. &middot;

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rainy Window | CSS Miracles</title>
+  <style>
+    /* Out-of-focus city lights behind a wet pane. Streaks are animated gradients,
+       drops on the glass are tiny lenses made of radial gradients. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(#0b0d1a, #1a1830 55%, #2b1f33);
+    }
+
+    .bokeh i {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: var(--s);
+      height: var(--s);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(var(--c), 0.55) 0 55%, rgba(var(--c), 0.2) 70%, transparent 72%);
+      filter: blur(3px);
+      mix-blend-mode: screen;
+      animation: glow var(--t) ease-in-out var(--d) infinite alternate;
+    }
+
+    .fog {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 120%, rgba(160, 150, 200, 0.25), transparent 60%);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .streaks {
+      position: absolute;
+      inset: -10%;
+      background:
+        repeating-linear-gradient(100deg, transparent 0 22px, rgba(200, 210, 255, 0.10) 22px 23px, transparent 23px 57px) 0 0 / 100% 180px,
+        repeating-linear-gradient(97deg, transparent 0 41px, rgba(200, 210, 255, 0.07) 41px 42px, transparent 42px 90px) 0 0 / 100% 260px;
+      mask-image: repeating-linear-gradient(transparent 0 30px, #000 30px 90px);
+      animation: fall 0.6s linear infinite;
+    }
+
+    .streaks.slow {
+      opacity: 0.6;
+      animation-duration: 1s;
+      transform: scaleX(-1);
+    }
+
+    /* Drops that cling to the glass and slowly slide down. */
+    .glass b {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: var(--s);
+      height: calc(var(--s) * 1.15);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.8) 0 12%, transparent 16%),
+        radial-gradient(circle at 50% 60%, rgba(255, 220, 180, 0.25), rgba(20, 20, 40, 0.3) 70%);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), inset 0 -2px 3px rgba(255, 255, 255, 0.25);
+      animation: slide var(--t) cubic-bezier(0.7, 0, 0.3, 1) var(--d) infinite;
+    }
+
+    .lamp {
+      position: absolute;
+      bottom: -30vh;
+      left: -20vw;
+      width: 70vmax;
+      height: 70vmax;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 170, 90, 0.28), transparent 60%);
+      animation: glow 6s ease-in-out infinite alternate;
+    }
+
+    .frame {
+      position: absolute;
+      inset: 0;
+      border: 2.5vmin solid #120e14;
+      background:
+        linear-gradient(#120e14, #120e14) 50% 0 / 1.6vmin 100% no-repeat,
+        linear-gradient(#120e14, #120e14) 0 50% / 100% 1.6vmin no-repeat;
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 5vh;
+      right: 5vw;
+      padding: 0.5rem 1rem;
+      font-style: italic;
+      color: rgba(255, 225, 190, 0.75);
+      font-size: clamp(0.9rem, 2.2vw, 1.15rem);
+      background: rgba(18, 14, 20, 0.6);
+      border-radius: 0.5rem;
+    }
+
+    @keyframes glow { to { opacity: 0.45; scale: 0.9; } }
+    @keyframes fall { to { background-position: -30px 180px, -40px 260px; } }
+
+    @keyframes slide {
+      0%, 55% { transform: translateY(0); opacity: 1; }
+      85%     { opacity: 1; }
+      100%    { transform: translateY(40vh); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .streaks { animation-duration: 6s; }
+      .glass b { animation-duration: 40s; }
+    }
+  </style>
+</head>
+<body>
+  <div class="lamp"></div>
+  <div class="bokeh">
+    <i style="--x:89%;--y:53%;--s:12vmin;--c:120,200,255;--t:5s;--d:-5s"></i>
+    <i style="--x:28%;--y:84%;--s:9vmin;--c:255,160,200;--t:5s;--d:-9s"></i>
+    <i style="--x:24%;--y:50%;--s:10vmin;--c:255,160,200;--t:5s;--d:-3s"></i>
+    <i style="--x:66%;--y:83%;--s:9vmin;--c:255,160,200;--t:4s;--d:-0s"></i>
+    <i style="--x:35%;--y:80%;--s:8vmin;--c:255,120,90;--t:9s;--d:-9s"></i>
+    <i style="--x:44%;--y:77%;--s:9vmin;--c:120,200,255;--t:4s;--d:-3s"></i>
+    <i style="--x:13%;--y:49%;--s:11vmin;--c:255,120,90;--t:6s;--d:-3s"></i>
+    <i style="--x:61%;--y:20%;--s:11vmin;--c:255,160,200;--t:6s;--d:-1s"></i>
+    <i style="--x:84%;--y:35%;--s:10vmin;--c:255,160,200;--t:5s;--d:-7s"></i>
+    <i style="--x:22%;--y:75%;--s:14vmin;--c:120,200,255;--t:4s;--d:-6s"></i>
+    <i style="--x:59%;--y:71%;--s:5vmin;--c:255,160,200;--t:5s;--d:-2s"></i>
+    <i style="--x:16%;--y:23%;--s:6vmin;--c:200,140,255;--t:7s;--d:-2s"></i>
+    <i style="--x:78%;--y:80%;--s:14vmin;--c:120,200,255;--t:5s;--d:-8s"></i>
+    <i style="--x:70%;--y:36%;--s:4vmin;--c:255,190,90;--t:9s;--d:-1s"></i>
+    <i style="--x:67%;--y:37%;--s:10vmin;--c:255,120,90;--t:5s;--d:-0s"></i>
+    <i style="--x:32%;--y:47%;--s:8vmin;--c:200,140,255;--t:5s;--d:-9s"></i>
+    <i style="--x:41%;--y:53%;--s:12vmin;--c:255,230,150;--t:5s;--d:-0s"></i>
+    <i style="--x:94%;--y:65%;--s:11vmin;--c:255,160,200;--t:8s;--d:-8s"></i>
+  </div>
+  <div class="fog"></div>
+  <div class="streaks"></div>
+  <div class="streaks slow"></div>
+  <div class="glass" aria-hidden="true">
+    <b style="--x:54%;--y:54%;--s:8px;--t:13s;--d:-4s"></b>
+    <b style="--x:68%;--y:55%;--s:6px;--t:12s;--d:-5s"></b>
+    <b style="--x:78%;--y:-10%;--s:8px;--t:7s;--d:-4s"></b>
+    <b style="--x:61%;--y:69%;--s:7px;--t:13s;--d:-1s"></b>
+    <b style="--x:42%;--y:56%;--s:14px;--t:13s;--d:-15s"></b>
+    <b style="--x:14%;--y:61%;--s:6px;--t:8s;--d:-6s"></b>
+    <b style="--x:36%;--y:-5%;--s:7px;--t:13s;--d:-14s"></b>
+    <b style="--x:72%;--y:-7%;--s:7px;--t:12s;--d:-10s"></b>
+    <b style="--x:79%;--y:54%;--s:15px;--t:13s;--d:-6s"></b>
+    <b style="--x:89%;--y:25%;--s:13px;--t:13s;--d:-15s"></b>
+    <b style="--x:65%;--y:21%;--s:14px;--t:9s;--d:-6s"></b>
+    <b style="--x:58%;--y:7%;--s:12px;--t:6s;--d:-12s"></b>
+    <b style="--x:57%;--y:30%;--s:7px;--t:15s;--d:-7s"></b>
+    <b style="--x:55%;--y:-1%;--s:9px;--t:15s;--d:-9s"></b>
+    <b style="--x:16%;--y:9%;--s:16px;--t:15s;--d:-11s"></b>
+    <b style="--x:19%;--y:22%;--s:8px;--t:12s;--d:-7s"></b>
+    <b style="--x:96%;--y:2%;--s:12px;--t:12s;--d:-5s"></b>
+    <b style="--x:86%;--y:18%;--s:8px;--t:16s;--d:-13s"></b>
+    <b style="--x:66%;--y:41%;--s:11px;--t:11s;--d:-6s"></b>
+    <b style="--x:46%;--y:30%;--s:7px;--t:16s;--d:-11s"></b>
+    <b style="--x:3%;--y:33%;--s:14px;--t:12s;--d:-14s"></b>
+    <b style="--x:91%;--y:-8%;--s:12px;--t:10s;--d:-16s"></b>
+  </div>
+  <div class="frame"></div>
+  <p class="caption">rain, city lights, nowhere to be</p>
+</body>
+</html>

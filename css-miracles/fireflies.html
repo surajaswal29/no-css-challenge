@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fireflies | CSS Miracles</title>
+  <style>
+    /* A summer dusk. Each firefly gets its own drift path and blink rhythm through
+       custom properties, so one pair of keyframes serves the whole swarm. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(#0b1026 0%, #1d2350 35%, #4a3a6e 60%, #c77d7a 78%, #f0b27a 86%);
+    }
+
+    .moon {
+      position: absolute;
+      top: 12vh;
+      right: 16vw;
+      width: 9vmin;
+      height: 9vmin;
+      border-radius: 50%;
+      box-shadow: inset -2.4vmin 1vmin 0 0 #fff3cf;
+      filter: drop-shadow(0 0 14px rgba(255, 240, 200, 0.6));
+      rotate: -20deg;
+    }
+
+    /* Rolling hills and a treeline, all clip-path and gradients. */
+    .hills {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: var(--h);
+      background: var(--c);
+      clip-path: var(--p);
+    }
+
+    .h1 { --h: 42vh; --c: #1a1936; --p: polygon(0 40%, 10% 30%, 25% 38%, 40% 20%, 55% 32%, 70% 18%, 85% 30%, 100% 22%, 100% 100%, 0 100%); }
+    .h2 { --h: 34vh; --c: #100f24; --p: ellipse(80% 70% at 30% 100%); }
+    .h3 { --h: 28vh; --c: #080716; --p: ellipse(70% 80% at 85% 100%); }
+
+    .trees {
+      position: absolute;
+      inset: auto 0 22vh 0;
+      height: 16vh;
+      background:
+        conic-gradient(from 160deg at 50% 0, #100f24 40deg, transparent 0) 0 100% / 3.2vw 100% repeat-x,
+        conic-gradient(from 162deg at 50% 0, #0c0b1d 36deg, transparent 0) 1.6vw 100% / 4.4vw 80% repeat-x;
+      mask-image: linear-gradient(90deg, #000 0 35%, transparent 45% 60%, #000 75%);
+    }
+
+    .grass {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 9vh;
+      background: conic-gradient(from 165deg at 50% 0, #05050f 30deg, transparent 0) 0 100% / 14px 100% repeat-x;
+      transform-origin: bottom;
+      animation: sway 7s ease-in-out infinite alternate;
+    }
+
+    .swarm i {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: var(--s);
+      height: var(--s);
+      border-radius: 50%;
+      background: #fbff9a;
+      box-shadow: 0 0 6px 2px #e6ff5c, 0 0 18px 6px rgba(200, 255, 80, 0.45), 0 0 40px 12px rgba(200, 255, 80, 0.15);
+      animation:
+        drift var(--t) ease-in-out var(--d) infinite alternate,
+        blink var(--b) ease-in-out var(--d) infinite;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 3vh;
+      width: 100%;
+      text-align: center;
+      font-style: italic;
+      letter-spacing: 0.12em;
+      color: rgba(255, 240, 200, 0.6);
+      font-size: clamp(0.9rem, 2.2vw, 1.15rem);
+    }
+
+    @keyframes drift {
+      33% { transform: translate(calc(var(--dx) * 0.4), calc(var(--dy) * -0.6)); }
+      66% { transform: translate(calc(var(--dx) * -0.3), calc(var(--dy) * 0.5)); }
+      100% { transform: translate(var(--dx), var(--dy)); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.1; scale: 0.6; }
+      50%      { opacity: 1;   scale: 1; }
+    }
+
+    @keyframes sway { to { transform: skewX(4deg); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .swarm i { animation-duration: 40s, 8s; }
+      .grass { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="moon"></div>
+  <div class="hills h1"></div>
+  <div class="trees"></div>
+  <div class="hills h2"></div>
+  <div class="hills h3"></div>
+  <div class="swarm" role="img" aria-label="Fireflies drifting and glowing over dark hills at dusk">
+    <i style="--x:44%;--y:44%;--dx:0vw;--dy:6vh;--t:9s;--b:1.8s;--d:-17s;--s:4px"></i>
+    <i style="--x:49%;--y:72%;--dx:-11vw;--dy:2vh;--t:12s;--b:1.7s;--d:-13s;--s:7px"></i>
+    <i style="--x:11%;--y:50%;--dx:-10vw;--dy:3vh;--t:15s;--b:1.7s;--d:-18s;--s:4px"></i>
+    <i style="--x:31%;--y:75%;--dx:8vw;--dy:4vh;--t:9s;--b:2.9s;--d:-12s;--s:4px"></i>
+    <i style="--x:31%;--y:37%;--dx:5vw;--dy:-10vh;--t:13s;--b:2.5s;--d:-17s;--s:4px"></i>
+    <i style="--x:76%;--y:54%;--dx:5vw;--dy:-9vh;--t:10s;--b:2.9s;--d:-20s;--s:5px"></i>
+    <i style="--x:50%;--y:41%;--dx:5vw;--dy:-12vh;--t:18s;--b:1.7s;--d:-6s;--s:7px"></i>
+    <i style="--x:90%;--y:69%;--dx:1vw;--dy:-4vh;--t:16s;--b:2.9s;--d:-14s;--s:6px"></i>
+    <i style="--x:41%;--y:50%;--dx:-7vw;--dy:-7vh;--t:10s;--b:2.9s;--d:-16s;--s:7px"></i>
+    <i style="--x:46%;--y:81%;--dx:2vw;--dy:-5vh;--t:18s;--b:3.8s;--d:-3s;--s:7px"></i>
+    <i style="--x:24%;--y:83%;--dx:-2vw;--dy:-10vh;--t:16s;--b:2.5s;--d:-2s;--s:6px"></i>
+    <i style="--x:46%;--y:79%;--dx:-1vw;--dy:5vh;--t:16s;--b:2.9s;--d:-14s;--s:4px"></i>
+    <i style="--x:14%;--y:52%;--dx:3vw;--dy:-12vh;--t:9s;--b:3.2s;--d:-9s;--s:7px"></i>
+    <i style="--x:39%;--y:80%;--dx:0vw;--dy:-3vh;--t:9s;--b:3.7s;--d:-11s;--s:5px"></i>
+    <i style="--x:81%;--y:42%;--dx:3vw;--dy:-13vh;--t:12s;--b:3.3s;--d:-4s;--s:5px"></i>
+    <i style="--x:53%;--y:60%;--dx:3vw;--dy:-12vh;--t:11s;--b:2.6s;--d:-17s;--s:6px"></i>
+    <i style="--x:20%;--y:87%;--dx:1vw;--dy:3vh;--t:13s;--b:3.2s;--d:-11s;--s:7px"></i>
+    <i style="--x:32%;--y:44%;--dx:-10vw;--dy:-9vh;--t:11s;--b:2.1s;--d:-7s;--s:4px"></i>
+    <i style="--x:65%;--y:88%;--dx:6vw;--dy:-9vh;--t:13s;--b:2.2s;--d:-4s;--s:7px"></i>
+    <i style="--x:71%;--y:58%;--dx:7vw;--dy:4vh;--t:14s;--b:3.7s;--d:-16s;--s:4px"></i>
+    <i style="--x:61%;--y:90%;--dx:12vw;--dy:3vh;--t:15s;--b:2.5s;--d:-12s;--s:4px"></i>
+    <i style="--x:64%;--y:75%;--dx:0vw;--dy:-13vh;--t:12s;--b:1.7s;--d:-6s;--s:7px"></i>
+    <i style="--x:23%;--y:42%;--dx:-2vw;--dy:5vh;--t:9s;--b:1.8s;--d:-18s;--s:5px"></i>
+    <i style="--x:71%;--y:41%;--dx:-1vw;--dy:5vh;--t:9s;--b:1.8s;--d:-6s;--s:7px"></i>
+    <i style="--x:22%;--y:75%;--dx:-4vw;--dy:-3vh;--t:18s;--b:2.4s;--d:-3s;--s:4px"></i>
+    <i style="--x:65%;--y:64%;--dx:3vw;--dy:1vh;--t:13s;--b:1.8s;--d:-3s;--s:6px"></i>
+    <i style="--x:97%;--y:51%;--dx:3vw;--dy:-9vh;--t:17s;--b:1.7s;--d:-16s;--s:6px"></i>
+    <i style="--x:21%;--y:79%;--dx:5vw;--dy:-14vh;--t:17s;--b:2.3s;--d:-20s;--s:4px"></i>
+  </div>
+  <div class="grass"></div>
+  <p class="caption">late june, somewhere quiet</p>
+</body>
+</html>

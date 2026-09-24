@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pattern Library | CSS Miracles</title>
+  <style>
+    /* Twelve seamless patterns, each a single background declaration.
+       Hover a tile to set it drifting; the last row moves on its own. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @property --r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+    @property --a { syntax: "<angle>";  inherits: false; initial-value: 0deg; }
+
+    body {
+      min-height: 100vh;
+      padding: clamp(1rem, 4vw, 3rem);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: #efeaf7;
+      background: #121019;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+    }
+
+    .sub {
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #9a93ad;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .tile {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+      transition: transform 0.4s ease;
+    }
+
+    .tile:hover { transform: scale(1.03); }
+    .tile:hover:not(.live) { animation: drift 6s linear infinite; }
+
+    .tile span {
+      position: absolute;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #fff;
+      background: rgba(10, 8, 16, 0.7);
+      backdrop-filter: blur(6px);
+    }
+
+    .checker {
+      background: repeating-conic-gradient(#f4c7ab 0 25%, #e58f65 0 50%) 0 0 / 40px 40px;
+    }
+
+    .polka {
+      background:
+        radial-gradient(#fbe8a6 20%, transparent 22%) 0 0 / 36px 36px,
+        radial-gradient(#fbe8a6 20%, transparent 22%) 18px 18px / 36px 36px,
+        #f76c6c;
+    }
+
+    .zigzag {
+      background:
+        linear-gradient(135deg, #ecf0f1 25%, transparent 25%) -25px 0 / 50px 50px,
+        linear-gradient(225deg, #ecf0f1 25%, transparent 25%) -25px 0 / 50px 50px,
+        linear-gradient(315deg, #ecf0f1 25%, transparent 25%) 0 0 / 50px 50px,
+        linear-gradient(45deg, #ecf0f1 25%, transparent 25%) 0 0 / 50px 50px,
+        #3aafa9;
+    }
+
+    .cubes {
+      --s: 48px;
+      --c1: #ead94c;
+      --c2: #dd7373;
+      --c3: #3b3561;
+      --_g: 0 120deg, transparent 0;
+      background:
+        conic-gradient(from -60deg at 50% calc(100% / 3), var(--c3) var(--_g)),
+        conic-gradient(from 120deg at 50% calc(200% / 3), var(--c3) var(--_g)),
+        conic-gradient(from 60deg at calc(200% / 3), var(--c3) 60deg, var(--c2) var(--_g)),
+        conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--c3) var(--_g)),
+        linear-gradient(90deg, var(--c1) calc(100% / 6), var(--c2) 0 50%, var(--c1) 0 calc(500% / 6), var(--c2) 0);
+      background-size: calc(1.732 * var(--s)) var(--s);
+    }
+
+    .seigaiha {
+      --s: 60px;
+      --c1: #1f3c88;
+      --c2: #f6f5f5;
+      --g: radial-gradient(circle at 50% 100%, var(--c1) 12%, var(--c2) 13% 24%, var(--c1) 25% 36%, var(--c2) 37% 48%, var(--c1) 49% 60%, var(--c2) 61% 70%, transparent 71%);
+      background:
+        var(--g) calc(var(--s) / 2) calc(var(--s) / 4) / var(--s) calc(var(--s) / 2),
+        var(--g) 0 calc(var(--s) / -4) / var(--s) calc(var(--s) / 2),
+        var(--c1);
+    }
+
+    .tartan {
+      background:
+        repeating-linear-gradient(90deg, transparent 0 20px, rgba(255, 255, 255, 0.18) 20px 24px, transparent 24px 40px, rgba(0, 0, 0, 0.25) 40px 60px, transparent 60px 80px),
+        repeating-linear-gradient(0deg, transparent 0 20px, rgba(255, 255, 255, 0.18) 20px 24px, transparent 24px 40px, rgba(0, 0, 0, 0.25) 40px 60px, transparent 60px 80px),
+        #a4262c;
+    }
+
+    .blueprint {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.35) 2px, transparent 2px) -1px -1px / 100px 100px,
+        linear-gradient(90deg, rgba(255, 255, 255, 0.35) 2px, transparent 2px) -1px -1px / 100px 100px,
+        linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px) -1px -1px / 20px 20px,
+        linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px) -1px -1px / 20px 20px,
+        #1d4f91;
+    }
+
+    .carbon {
+      background:
+        radial-gradient(#000 15%, transparent 16%) 0 0 / 16px 16px,
+        radial-gradient(#000 15%, transparent 16%) 8px 8px / 16px 16px,
+        radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px / 16px 16px,
+        radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px / 16px 16px,
+        #282828;
+    }
+
+    .waves {
+      background:
+        radial-gradient(circle at 50% 0, transparent 38%, #f38181 40% 58%, transparent 60%) 0 0 / 40px 20px,
+        radial-gradient(circle at 50% 100%, transparent 38%, #f38181 40% 58%, transparent 60%) 20px 0 / 40px 20px,
+        #fce38a;
+    }
+
+    /* ---------- Self-animating patterns ---------- */
+    .ripples {
+      background: repeating-radial-gradient(circle at 50% 50%, #0b3d4f 0 calc(var(--r)), #6ad6c8 calc(var(--r)) calc(var(--r) + 6px), #0b3d4f calc(var(--r) + 6px) 30px);
+      animation: ripple 3s linear infinite;
+    }
+
+    .sunburst {
+      background:
+        radial-gradient(circle, #fff3b0 0 8%, transparent 45%),
+        repeating-conic-gradient(from var(--a), #ff9f1c 0 7.5deg, #ffbf69 7.5deg 15deg);
+      animation: spin 30s linear infinite;
+    }
+
+    .moire {
+      background:
+        repeating-radial-gradient(circle at 42% 50%, transparent 0 6px, rgba(20, 20, 30, 0.9) 6px 8px),
+        repeating-radial-gradient(circle at 58% 50%, transparent 0 6px, rgba(20, 20, 30, 0.9) 6px 8px),
+        linear-gradient(135deg, #b8f2e6, #aed9e0 50%, #ffa69e);
+      background-size: 100% 100%, 100% 100%, 100% 100%;
+      animation: moire 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift { to { background-position: 200px 200px; } }
+    @keyframes ripple { to { --r: 24px; } }
+    @keyframes spin { to { --a: 360deg; } }
+    @keyframes moire { to { background-size: 110% 110%, 90% 90%, 100% 100%; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tile, .tile:hover { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Pattern Library</h1>
+  <p class="sub">Every tile is one CSS background. Hover to set it drifting.</p>
+  <div class="grid">
+    <div class="tile checker"><span>Checkerboard</span></div>
+    <div class="tile polka"><span>Polka</span></div>
+    <div class="tile zigzag"><span>Zigzag</span></div>
+    <div class="tile cubes"><span>Isometric cubes</span></div>
+    <div class="tile seigaiha"><span>Seigaiha</span></div>
+    <div class="tile tartan"><span>Tartan</span></div>
+    <div class="tile blueprint"><span>Blueprint</span></div>
+    <div class="tile carbon"><span>Carbon fibre</span></div>
+    <div class="tile waves"><span>Wave chain</span></div>
+    <div class="tile live ripples"><span>Ripples</span></div>
+    <div class="tile live sunburst"><span>Sunburst</span></div>
+    <div class="tile live moire"><span>Moir&eacute;</span></div>
+  </div>
+</body>
+</html>
