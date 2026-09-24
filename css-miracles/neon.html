@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Nights | CSS Miracles</title>
+  <style>
+    /* Pure CSS neon signage, a glitch headline and a flickering tube. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-content: center;
+      gap: 4rem;
+      padding: 2rem;
+      overflow: hidden;
+      text-align: center;
+      font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+      color: #fff;
+      background:
+        /* brick wall */
+        linear-gradient(#0c0c14 2px, transparent 2px) 0 0 / 80px 40px,
+        linear-gradient(90deg, #0c0c14 2px, transparent 2px) 0 0 / 80px 40px,
+        linear-gradient(90deg, #0c0c14 2px, transparent 2px) 40px 20px / 80px 40px,
+        radial-gradient(ellipse at center, #2a1830 0%, #120c18 70%);
+    }
+
+    .sign {
+      position: relative;
+      padding: 1.5rem 3rem;
+      border: 4px solid #fff;
+      border-radius: 1.5rem;
+      font-size: clamp(2.5rem, 9vw, 6rem);
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.08em;
+      box-shadow:
+        0 0 0.2rem #fff,
+        0 0 0.4rem #fff,
+        0 0 2rem #ff2fd6,
+        0 0 4rem #ff2fd6,
+        inset 0 0 2rem #ff2fd6;
+      text-shadow:
+        0 0 0.1em #fff,
+        0 0 0.2em #fff,
+        0 0 0.4em #ff2fd6,
+        0 0 0.8em #ff2fd6,
+        0 0 1.6em #ff2fd6;
+    }
+
+    .sign .flicker { animation: flicker 4s infinite; }
+    .sign .late { animation-delay: 1.3s; animation-duration: 6s; }
+
+    .open {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-style: normal;
+      letter-spacing: 0.5em;
+      color: #d5fff9;
+      text-shadow: 0 0 0.1em #fff, 0 0 0.4em #00f0ff, 0 0 1em #00f0ff, 0 0 2em #00f0ff;
+      animation: buzz 0.12s infinite alternate;
+    }
+
+    .glitch {
+      position: relative;
+      font-family: "Courier New", monospace;
+      font-size: clamp(1.8rem, 6vw, 4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #f4f4f4;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .glitch::before {
+      left: 3px;
+      color: #00f0ff;
+      text-shadow: -2px 0 #ff2fd6;
+      animation: glitch-a 2.5s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      left: -3px;
+      color: #ff2fd6;
+      text-shadow: 2px 0 #00f0ff;
+      animation: glitch-b 3s infinite linear alternate-reverse;
+    }
+
+    .tube {
+      justify-self: center;
+      width: min(70vw, 500px);
+      height: 10px;
+      border-radius: 10px;
+      background: #b8ff6a;
+      box-shadow: 0 0 10px #b8ff6a, 0 0 30px #7aff00, 0 0 80px #7aff00, 0 40px 120px 20px rgba(122, 255, 0, 0.25);
+      animation: flicker 5s infinite 0.7s;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+      20%, 24%, 55% { opacity: 0.2; text-shadow: none; box-shadow: none; }
+    }
+
+    @keyframes buzz {
+      to { opacity: 0.88; }
+    }
+
+    @keyframes glitch-a {
+      0%   { clip-path: inset(10% 0 80% 0); transform: translate(-4px, 0); }
+      20%  { clip-path: inset(60% 0 10% 0); transform: translate(4px, 0); }
+      40%  { clip-path: inset(40% 0 43% 0); transform: translate(-2px, 0); }
+      60%  { clip-path: inset(80% 0 5% 0);  transform: translate(3px, 0); }
+      80%  { clip-path: inset(25% 0 58% 0); transform: translate(-3px, 0); }
+      100% { clip-path: inset(50% 0 30% 0); transform: translate(2px, 0); }
+    }
+
+    @keyframes glitch-b {
+      0%   { clip-path: inset(70% 0 15% 0); transform: translate(3px, 0); }
+      25%  { clip-path: inset(5% 0 85% 0);  transform: translate(-3px, 0); }
+      50%  { clip-path: inset(35% 0 50% 0); transform: translate(2px, 0); }
+      75%  { clip-path: inset(90% 0 2% 0);  transform: translate(-4px, 0); }
+      100% { clip-path: inset(20% 0 65% 0); transform: translate(1px, 0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sign">
+    <span class="flicker">N</span>e<span class="flicker late">o</span>n Caf<span class="flicker">é</span>
+    <br>
+    <span class="open">open late</span>
+  </div>
+  <h1 class="glitch" data-text="No JavaScript">No JavaScript</h1>
+  <div class="tube"></div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day to Night | CSS Miracles</title>
+  <style>
+    /* A 20-second day cycle drawn entirely with gradients and clip-path. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @property --sky-top    { syntax: "<color>"; inherits: true; initial-value: #6fb7ff; }
+    @property --sky-bottom { syntax: "<color>"; inherits: true; initial-value: #ffe3b0; }
+    @property --shade      { syntax: "<number>"; inherits: true; initial-value: 0; }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .world {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(var(--sky-top), var(--sky-bottom));
+      animation: sky 20s ease-in-out infinite;
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0 0 40% 0;
+      opacity: var(--shade);
+      background:
+        radial-gradient(1.5px 1.5px at 10% 20%, #fff, transparent),
+        radial-gradient(1px 1px at 20% 60%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 35% 30%, #fff, transparent),
+        radial-gradient(1px 1px at 50% 10%, #fff, transparent),
+        radial-gradient(1px 1px at 62% 45%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 75% 22%, #fff, transparent),
+        radial-gradient(1px 1px at 88% 55%, #fff, transparent),
+        radial-gradient(1px 1px at 93% 12%, #fff, transparent),
+        radial-gradient(1px 1px at 5% 75%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 45% 70%, #fff, transparent);
+    }
+
+    /* Sun and moon share an axis, so as one sets, the other rises. */
+    .sky-wheel {
+      position: absolute;
+      left: 50%;
+      top: 70%;
+      width: 0;
+      height: 0;
+      animation: wheel 20s linear infinite;
+    }
+
+    .sun, .moon {
+      position: absolute;
+      width: 12vmin;
+      height: 12vmin;
+      margin: -6vmin;
+      border-radius: 50%;
+    }
+
+    .sun {
+      transform: translateY(-55vh);
+      background: radial-gradient(circle, #fffbe0, #ffd54a 60%, #ff9f1a);
+      box-shadow: 0 0 60px 20px rgba(255, 200, 60, 0.6);
+    }
+
+    .moon {
+      transform: translateY(55vh);
+      background: #f4f1e0;
+      box-shadow:
+        inset -2vmin -1vmin 0 #d9d4bb,
+        0 0 40px 8px rgba(255, 255, 230, 0.35);
+    }
+
+    .mountains {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: var(--h);
+      background: var(--c);
+      filter: brightness(calc(1 - var(--shade) * 0.65));
+    }
+
+    .far {
+      --h: 55%;
+      --c: linear-gradient(#7d8fb8, #5a6a92);
+      clip-path: polygon(0 60%, 12% 30%, 22% 50%, 35% 10%, 48% 45%, 60% 20%, 72% 48%, 85% 15%, 100% 40%, 100% 100%, 0 100%);
+    }
+
+    .near {
+      --h: 45%;
+      --c: linear-gradient(#3f5a47, #22362a);
+      clip-path: polygon(0 45%, 15% 20%, 28% 55%, 40% 30%, 55% 60%, 68% 25%, 82% 50%, 92% 35%, 100% 50%, 100% 100%, 0 100%);
+    }
+
+    .snow {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 55%;
+      background: #fff;
+      opacity: 0.85;
+      clip-path: polygon(30% 22%, 35% 10%, 40% 22%, 37% 20%, 35% 24%, 33% 19%);
+      filter: brightness(calc(1 - var(--shade) * 0.5));
+    }
+
+    .lake {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 18%;
+      background:
+        repeating-linear-gradient(transparent 0 6px, rgba(255, 255, 255, 0.12) 6px 7px),
+        linear-gradient(var(--sky-bottom), var(--sky-top));
+      filter: brightness(calc(0.85 - var(--shade) * 0.4));
+      animation: ripple 3s linear infinite;
+    }
+
+    .cloud {
+      position: absolute;
+      top: var(--y);
+      left: -30vmin;
+      width: 22vmin;
+      height: 7vmin;
+      border-radius: 7vmin;
+      background: #fff;
+      opacity: calc(0.9 - var(--shade) * 0.6);
+      animation: drift var(--t) linear infinite;
+      animation-delay: var(--delay);
+    }
+
+    .cloud::before, .cloud::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: inherit;
+    }
+    .cloud::before { width: 10vmin; height: 10vmin; top: -5vmin; left: 3vmin; }
+    .cloud::after  { width: 8vmin;  height: 8vmin;  top: -3.5vmin; left: 11vmin; }
+
+    .c1 { --y: 12%; --t: 38s; --delay: -5s; }
+    .c2 { --y: 25%; --t: 52s; --delay: -30s; transform: scale(0.7); }
+    .c3 { --y: 8%;  --t: 45s; --delay: -18s; transform: scale(0.5); }
+
+    .label {
+      position: absolute;
+      bottom: 4vh;
+      width: 100%;
+      text-align: center;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: rgba(255, 255, 255, 0.85);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes wheel { to { transform: rotate(360deg); } }
+
+    @keyframes sky {
+      0%, 100% { --sky-top: #6fb7ff; --sky-bottom: #ffe3b0; --shade: 0; }
+      22%      { --sky-top: #ff7e5f; --sky-bottom: #feb47b; --shade: 0.25; }
+      35%      { --sky-top: #2b1055; --sky-bottom: #d53369; --shade: 0.6; }
+      50%      { --sky-top: #03001e; --sky-bottom: #1c1b4d; --shade: 1; }
+      70%      { --sky-top: #0b0930; --sky-bottom: #3b2a6b; --shade: 0.9; }
+      80%      { --sky-top: #f6a8c3; --sky-bottom: #ffd1a4; --shade: 0.3; }
+    }
+
+    @keyframes drift { to { left: 110vw; } }
+    @keyframes ripple { to { background-position: 0 14px, 0 0; } }
+  </style>
+</head>
+<body>
+  <div class="world">
+    <div class="stars"></div>
+    <div class="sky-wheel">
+      <div class="sun"></div>
+      <div class="moon"></div>
+    </div>
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+    <div class="mountains far"></div>
+    <div class="snow"></div>
+    <div class="mountains near"></div>
+    <div class="lake"></div>
+    <p class="label">One day, twenty seconds, zero images.</p>
+  </div>
+</body>
+</html>

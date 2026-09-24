@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Without JS | CSS Miracles</title>
+  <style>
+    /* Theme switch, tabs, star rating, flip card and accordion.
+       All state lives in checkboxes, radios and <details>; CSS does the rest. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f3f0ff;
+      --card: #ffffff;
+      --text: #1f1b2e;
+      --muted: #6b6480;
+      --accent: #7c4dff;
+      --accent-2: #ff6fb5;
+      --border: #e1dbf5;
+    }
+
+    /* The whole page reacts to one checkbox, thanks to :has(). */
+    :root:has(#theme:checked) {
+      --bg: #0f0c1d;
+      --card: #1b1730;
+      --text: #efeaff;
+      --muted: #a79fc4;
+      --accent: #a98bff;
+      --accent-2: #ff8cc6;
+      --border: #2e2850;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: clamp(1rem, 4vw, 3rem);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      transition: background 0.5s, color 0.5s;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto 2rem;
+    }
+
+    h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); }
+    h1 span { color: var(--accent); }
+    h2 { font-size: 1rem; margin-bottom: 1rem; color: var(--muted); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    /* ---------- Day / night switch ---------- */
+    .switch {
+      position: relative;
+      display: block;
+      width: 90px;
+      height: 44px;
+      border-radius: 44px;
+      cursor: pointer;
+      background: linear-gradient(#77c3ff, #b9e3ff);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+      transition: background 0.5s;
+    }
+
+    .switch::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff6b0, #ffc300);
+      box-shadow: 0 0 12px #ffd000;
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background 0.5s, box-shadow 0.5s;
+    }
+
+    #theme:checked + .switch {
+      background: linear-gradient(#0b1030, #2b2f77);
+    }
+
+    #theme:checked + .switch::before {
+      transform: translateX(46px);
+      background: #e8e8f0;
+      box-shadow: inset -8px -3px 0 #b9b9cc, 0 0 12px rgba(255, 255, 255, 0.4);
+    }
+
+    #theme:focus-visible + .switch,
+    .tabs input:focus-visible + label,
+    .rating input:focus-visible + label { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      background: var(--card);
+      box-shadow: 0 10px 30px rgba(60, 30, 140, 0.08);
+      transition: background 0.5s, border-color 0.5s;
+    }
+
+    /* ---------- Tabs ---------- */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .tabs label {
+      flex: 1;
+      padding: 0.6rem;
+      border-radius: 0.75rem;
+      text-align: center;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--muted);
+      transition: color 0.3s, background 0.3s;
+    }
+
+    .tabs input:checked + label {
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .panel {
+      display: none;
+      flex-basis: 100%;
+      padding-top: 1rem;
+      line-height: 1.6;
+      color: var(--muted);
+      animation: rise 0.4s ease;
+    }
+
+    #tab-1:checked ~ .p1,
+    #tab-2:checked ~ .p2,
+    #tab-3:checked ~ .p3 { display: block; }
+
+    /* ---------- Star rating ---------- */
+    .rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 0.3rem;
+    }
+
+    .rating label {
+      font-size: 2.4rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--border);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    /* Siblings after the element in the DOM are the stars before it on screen. */
+    .rating input:checked ~ label,
+    .rating label:hover,
+    .rating label:hover ~ label { color: #ffb400; }
+
+    .rating label:hover { transform: scale(1.2) rotate(-8deg); }
+
+    .verdict { margin-top: 1rem; color: var(--muted); min-height: 1.5em; }
+    .verdict::after { content: "Pick a rating."; }
+    .card:has(#r1:checked) .verdict::after { content: "Ouch. Noted."; }
+    .card:has(#r2:checked) .verdict::after { content: "Room to grow."; }
+    .card:has(#r3:checked) .verdict::after { content: "Solid, thanks!"; }
+    .card:has(#r4:checked) .verdict::after { content: "Glad you like it!"; }
+    .card:has(#r5:checked) .verdict::after { content: "A CSS miracle indeed!"; }
+
+    /* ---------- Flip card ---------- */
+    .flip {
+      height: 220px;
+      perspective: 1000px;
+    }
+
+    .flip-inner {
+      position: relative;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+
+    .flip:hover .flip-inner,
+    .flip:focus-within .flip-inner { transform: rotateY(180deg); }
+
+    .side {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+      backface-visibility: hidden;
+    }
+
+    .side-front {
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .side-back {
+      color: var(--text);
+      background: repeating-linear-gradient(45deg, var(--card) 0 10px, var(--border) 10px 20px);
+      transform: rotateY(180deg);
+    }
+
+    .side-back a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ---------- Accordion ---------- */
+    details {
+      border-bottom: 1px solid var(--border);
+    }
+
+    summary {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      color: var(--accent);
+      font-size: 1.3rem;
+      line-height: 1;
+      transition: transform 0.3s;
+    }
+
+    details[open] summary::after { transform: rotate(45deg); }
+
+    details p {
+      padding-bottom: 1rem;
+      line-height: 1.6;
+      color: var(--muted);
+      animation: rise 0.35s ease;
+    }
+
+    /* ---------- Checklist with a progress bar that counts ---------- */
+    .todo {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      counter-reset: total done;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .todo h2, .todo .progress, .todo .count { grid-column: 1 / -1; }
+    .todo h2 { margin-bottom: 0.25rem; }
+    .todo label { cursor: pointer; transition: color 0.3s; }
+
+    .todo input {
+      appearance: none;
+      width: 1.3rem;
+      height: 1.3rem;
+      border: 2px solid var(--accent);
+      border-radius: 0.4rem;
+      display: grid;
+      place-content: center;
+      cursor: pointer;
+      counter-increment: total;
+    }
+
+    .todo input::before {
+      content: "";
+      width: 0.7rem;
+      height: 0.7rem;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      background: #fff;
+      transform: scale(0);
+      transition: transform 0.2s;
+    }
+
+    .todo input:checked { background: var(--accent); counter-increment: total done; }
+    .todo input:checked::before { transform: scale(1); }
+    .todo input:checked + label { text-decoration: line-through; color: var(--muted); }
+    .todo input:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 2px; }
+
+    .progress {
+      height: 8px;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      background: var(--border);
+      overflow: hidden;
+    }
+
+    .progress::before {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.4s ease;
+    }
+
+    /* Quantity queries: n checked boxes = n chained ":checked ~" steps. */
+    .todo:has(input:checked) .progress::before { width: 25%; }
+    .todo:has(input:checked ~ input:checked) .progress::before { width: 50%; }
+    .todo:has(input:checked ~ input:checked ~ input:checked) .progress::before { width: 75%; }
+    .todo:not(:has(input:not(:checked))) .progress::before { width: 100%; }
+
+    .count { color: var(--muted); font-size: 0.9rem; }
+    .count::after { content: counter(done) " of " counter(total) " done"; }
+    .todo:not(:has(input:not(:checked))) .count::after { content: "All done. Take a bow."; color: var(--accent); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Interactive, <span>zero JavaScript</span></h1>
+    <div>
+      <input type="checkbox" id="theme" class="visually-hidden">
+      <label for="theme" class="switch" title="Toggle night mode"><span class="visually-hidden">Toggle night mode</span></label>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Radio-powered tabs</h2>
+      <div class="tabs">
+        <input type="radio" name="tabs" id="tab-1" class="visually-hidden" checked>
+        <label for="tab-1">Why</label>
+        <input type="radio" name="tabs" id="tab-2" class="visually-hidden">
+        <label for="tab-2">How</label>
+        <input type="radio" name="tabs" id="tab-3" class="visually-hidden">
+        <label for="tab-3">Wow</label>
+        <p class="panel p1">Radio buttons already know how to keep exactly one option selected. CSS just decides what that looks like.</p>
+        <p class="panel p2">Each panel is shown with <code>#tab:checked ~ .panel</code>. The sibling combinator does all the work.</p>
+        <p class="panel p3">No event listeners, no state libraries, no bundle. It still works with the keyboard.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Star rating</h2>
+      <div class="rating">
+        <input type="radio" name="rate" id="r5" class="visually-hidden"><label for="r5" title="5 stars">★</label>
+        <input type="radio" name="rate" id="r4" class="visually-hidden"><label for="r4" title="4 stars">★</label>
+        <input type="radio" name="rate" id="r3" class="visually-hidden"><label for="r3" title="3 stars">★</label>
+        <input type="radio" name="rate" id="r2" class="visually-hidden"><label for="r2" title="2 stars">★</label>
+        <input type="radio" name="rate" id="r1" class="visually-hidden"><label for="r1" title="1 star">★</label>
+      </div>
+      <p class="verdict"></p>
+    </section>
+
+    <section class="card flip" tabindex="0">
+      <div class="flip-inner">
+        <div class="side side-front">Hover or focus me</div>
+        <div class="side side-back">
+          <strong>3D flip card</strong>
+          <span>Built with <code>perspective</code> and <code>backface-visibility</code>.</span>
+          <a href="index.html">Back to the gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Accordion</h2>
+      <details open>
+        <summary>Is there really no JavaScript?</summary>
+        <p>None. View the source. Every interaction on this page is native HTML state styled with CSS.</p>
+      </details>
+      <details>
+        <summary>How does the dark mode work?</summary>
+        <p><code>:root:has(#theme:checked)</code> swaps a handful of custom properties, and every colour follows.</p>
+      </details>
+      <details>
+        <summary>Is it accessible?</summary>
+        <p>Real form controls mean real keyboard and screen reader support for free.</p>
+      </details>
+    </section>
+
+    <section class="card todo">
+      <h2>Checklist with live progress</h2>
+      <input type="checkbox" id="t1"><label for="t1">Write the markup</label>
+      <input type="checkbox" id="t2"><label for="t2">Add the styles</label>
+      <input type="checkbox" id="t3"><label for="t3">Forget the script</label>
+      <input type="checkbox" id="t4"><label for="t4">Ship it</label>
+      <div class="progress"></div>
+      <p class="count"></p>
+    </section>
+  </main>
+</body>
+</html>

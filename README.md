@@ -16,8 +16,25 @@ vanilla-HTML/
 ├── about.html          # About page
 ├── contact.html        # Contact page
 ├── services.html       # Services page
-└── posts/             # Directory containing blog posts
+├── posts/             # Directory containing blog posts
+└── css-miracles/      # The opposite challenge: pure CSS, zero JavaScript
 ```
+
+## CSS Miracles
+
+The flip side of the challenge. Open `css-miracles/index.html` for a gallery of
+designs built with only HTML and CSS: no JavaScript, no images, no libraries.
+
+| Piece | Highlights |
+| --- | --- |
+| `cube.html` | Nested 3D cubes over a synthwave grid (`preserve-3d`, `perspective`) |
+| `solar-system.html` | Animated orrery on a tilted orbital plane |
+| `landscape.html` | A day-to-night cycle driven by animated `@property` colours |
+| `interactive.html` | Dark mode, tabs, star rating, flip card, accordion and a counting checklist, all powered by `:checked` and `:has()` |
+| `neon.html` | Flickering neon sign and a glitch headline |
+| `aurora.html` | Glassmorphism card with a rotating conic-gradient border |
+| `loaders.html` | Twelve loading indicators |
+| `coffee.html` | CSS illustration with rising steam and latte art |
 
 ## Features
 
