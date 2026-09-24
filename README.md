@@ -17,6 +17,7 @@ vanilla-HTML/
 ├── contact.html        # Contact page
 ├── services.html       # Services page
 ├── posts/             # Directory containing blog posts
+├── portfolio/         # Business and product portfolio: HTML + CSS, zero JavaScript
 └── css-miracles/      # The opposite challenge: pure CSS, zero JavaScript
 ```
 
@@ -43,6 +44,33 @@ designs built with only HTML and CSS: no JavaScript, no images, no libraries.
 | `hypnosis.html` | Phyllotaxis sunflower with `sqrt()`, pendulum wave, twisting tunnel |
 | `patterns.html` | Twelve seamless single-background patterns |
 | `scroll.html` | Scroll-driven animations with `animation-timeline` (Chrome / Edge) |
+
+## Portfolio: a real site with no JavaScript
+
+`portfolio/` is a four-page business and product portfolio for a fictional
+studio, built to show that a normal company website does not need JavaScript to
+feel modern. Each page is one HTML file plus one shared stylesheet: no scripts,
+no image files and no web fonts. The largest page is about 11 KB gzipped
+including the CSS, and the stylesheet is cached after the first visit.
+
+| Feature | Built with |
+| --- | --- |
+| Mobile menu | `popover` + `popovertarget`, placed with CSS anchor positioning |
+| Product quick views and booking modal | `<dialog>` opened by `<button commandfor command="show-modal">`, `closedby="any"` |
+| Dialog fade in and out | `@starting-style` + `transition-behavior: allow-discrete` |
+| Product filter and case-study tabs | Radio buttons read with `:has()` |
+| Monthly / yearly pricing | A checkbox switch read with `:has()` |
+| FAQ accordion | `<details name>` (one open at a time), animated with `::details-content` |
+| Testimonials carousel | Scroll snap, with `::scroll-marker` dots where supported |
+| Form validation | `required`, `type="email"`, `minlength`, `<datalist>`, messages via `:user-invalid` |
+| Light and dark themes | `color-scheme` + `light-dark()` |
+| Page-to-page animation | Cross-document view transitions (`@view-transition`) |
+| Instant navigation | Speculation rules (a JSON block, not script) prerender pages on hover |
+| Product artwork | CSS gradients and pseudo-elements, no image downloads |
+
+Every feature is progressive: older browsers still get a working, readable site.
+The contact form uses `mailto:` because a static site has no server; point its
+`action` at a form service to collect submissions.
 
 ## Features
 

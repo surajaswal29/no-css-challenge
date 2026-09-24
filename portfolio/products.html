@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products | Northlight Studio</title>
+  <meta name="description" content="Software, hardware and fixed-price services from Northlight Studio, built for independent businesses.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%234f46e5'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="speculationrules">
+    { "prerender": [{ "where": { "selector_matches": "a[href$='.html']" }, "eagerness": "moderate" }] }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Northlight</a>
+      <nav aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" aria-current="page">Products</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="icon-btn menu-toggle" popovertarget="menu" aria-label="Menu"><span class="burger" aria-hidden="true"></span></button>
+      <div id="menu" popover>
+        <nav aria-label="Mobile">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html" aria-current="page">Products</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="wrap catalog">
+        <div class="section-head">
+          <span class="eyebrow">Products</span>
+          <h1>Built for small teams, sold on their own</h1>
+          <p>Software, devices and fixed-price services. Every product comes with a 30-day money-back guarantee.</p>
+        </div>
+
+        <!-- Filtering is pure CSS: the checked radio is read with :has() in styles.css. -->
+        <div class="toolbar">
+          <fieldset class="chips">
+            <legend>Filter products</legend>
+            <label class="chip"><input type="radio" name="filter" id="f-all" checked><span>All</span></label>
+            <label class="chip"><input type="radio" name="filter" id="f-software"><span>Software</span></label>
+            <label class="chip"><input type="radio" name="filter" id="f-hardware"><span>Hardware</span></label>
+            <label class="chip"><input type="radio" name="filter" id="f-service"><span>Services</span></label>
+          </fieldset>
+          <p class="count" aria-live="polite">
+            <span class="c-all">Showing all 6 products</span>
+            <span class="c-software">Showing 2 software products</span>
+            <span class="c-hardware">Showing 2 hardware products</span>
+            <span class="c-service">Showing 2 services</span>
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card product" id="ledger" data-cat="software">
+            <div class="art art--ledger" aria-hidden="true"></div>
+            <span class="tag">Software</span>
+            <h2>Ledger</h2>
+            <p>Bookkeeping for shops with fewer than 20 staff. Bank sync, invoices and tax-ready reports.</p>
+            <p class="price">$19 <small>/ month</small></p>
+            <div class="btn-row">
+              <button class="btn btn--small" commandfor="d-ledger" command="show-modal">Quick view</button>
+              <a class="btn btn--small btn--ghost" href="#pricing">See plans</a>
+            </div>
+          </article>
+
+          <article class="card product" id="lens" data-cat="hardware">
+            <div class="art art--lens" aria-hidden="true"></div>
+            <span class="tag">Hardware</span>
+            <h2>Lens One</h2>
+            <p>A counter-top barcode and card reader that pairs with Ledger in under a minute.</p>
+            <p class="price">$149 <small>one-off</small></p>
+            <div class="btn-row">
+              <button class="btn btn--small" commandfor="d-lens" command="show-modal">Quick view</button>
+            </div>
+          </article>
+
+          <article class="card product" id="pulse" data-cat="software">
+            <div class="art art--pulse" aria-hidden="true"></div>
+            <span class="tag">Software</span>
+            <h2>Pulse</h2>
+            <p>Uptime and performance monitoring that texts a human, not a dashboard nobody reads.</p>
+            <p class="price">$9 <small>/ site / month</small></p>
+            <div class="btn-row">
+              <button class="btn btn--small" commandfor="d-pulse" command="show-modal">Quick view</button>
+            </div>
+          </article>
+
+          <article class="card product" id="atlas" data-cat="hardware">
+            <div class="art art--atlas" aria-hidden="true"></div>
+            <span class="tag">Hardware</span>
+            <h2>Atlas Tag</h2>
+            <p>A coin-sized GPS tag for delivery bags and vans. Two-year battery, no monthly fee.</p>
+            <p class="price">$39 <small>per tag</small></p>
+            <div class="btn-row">
+              <button class="btn btn--small" commandfor="d-atlas" command="show-modal">Quick view</button>
+            </div>
+          </article>
+
+          <article class="card product" id="bloom" data-cat="service">
+            <div class="art art--bloom" aria-hidden="true"></div>
+            <span class="tag">Service</span>
+            <h2>Brand Kit</h2>
+            <p>Logo, colours, type and templates for signs, menus and social posts. Done in three weeks.</p>
+            <p class="price">$4,800 <small>fixed</small></p>
+            <div class="btn-row">
+              <button class="btn btn--small" commandfor="d-bloom" command="show-modal">Quick view</button>
+            </div>
+          </article>
+
+          <article class="card product" id="forge" data-cat="service">
+            <div class="art art--forge" aria-hidden="true"></div>
+            <span class="tag">Service</span>
+            <h2>Speed Sprint</h2>
+            <p>Two weeks to make your existing website fast. We measure before and after, and you keep the report.</p>
+            <p class="price">$6,500 <small>fixed</small></p>
+            <div class="btn-row">
+              <button class="btn btn--small" commandfor="d-forge" command="show-modal">Quick view</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="pricing">
+      <div class="wrap plans">
+        <div class="section-head">
+          <span class="eyebrow">Ledger pricing</span>
+          <h2>Simple plans. Cancel any time.</h2>
+          <p>All plans include
+            <button class="has-tip" popovertarget="tip-support" type="button">human support</button>
+            and free updates.</p>
+          <div id="tip-support" popover="hint" class="tip">A real person replies by email within four working hours, Monday to Friday.</div>
+        </div>
+
+        <label class="billing">
+          Monthly
+          <input class="switch" type="checkbox" id="yearly" role="switch">
+          Yearly <span class="save">2 months free</span>
+        </label>
+
+        <div class="grid">
+          <article class="card plan">
+            <h3>Starter</h3>
+            <p>For one person running the books.</p>
+            <p class="price"><span class="monthly">$19 <small>/ month</small></span><span class="yearly">$190 <small>/ year</small></span></p>
+            <ul>
+              <li>1 user, 1 bank account</li>
+              <li>Unlimited invoices</li>
+              <li>Quarterly tax report</li>
+            </ul>
+            <div class="btn-row"><a class="btn btn--ghost" href="contact.html">Start free trial</a></div>
+          </article>
+          <article class="card plan plan--featured">
+            <span class="tag">Most popular</span>
+            <h3>Team</h3>
+            <p>For shops with staff and a front desk.</p>
+            <p class="price"><span class="monthly">$49 <small>/ month</small></span><span class="yearly">$490 <small>/ year</small></span></p>
+            <ul>
+              <li>Up to 10 users</li>
+              <li>Lens One integration</li>
+              <li>Payroll exports</li>
+              <li>Monthly reports</li>
+            </ul>
+            <div class="btn-row"><a class="btn" href="contact.html">Start free trial</a></div>
+          </article>
+          <article class="card plan">
+            <h3>Multi-site</h3>
+            <p>For owners with more than one location.</p>
+            <p class="price"><span class="monthly">$99 <small>/ month</small></span><span class="yearly">$990 <small>/ year</small></span></p>
+            <ul>
+              <li>Unlimited users</li>
+              <li>Per-location reports</li>
+              <li>Priority phone support</li>
+            </ul>
+            <div class="btn-row"><a class="btn btn--ghost" href="contact.html">Talk to us</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Product quick views. Each opens with <button commandfor="…" command="show-modal">. -->
+  <dialog id="d-ledger" closedby="any" aria-labelledby="d-ledger-t">
+    <button class="icon-btn dialog-close" commandfor="d-ledger" command="close" aria-label="Close">×</button>
+    <div class="dialog-body">
+      <div class="art art--ledger" aria-hidden="true"></div>
+      <h2 id="d-ledger-t">Ledger</h2>
+      <p class="muted">Bookkeeping that fits on one screen. Connect your bank, send invoices and hand your accountant a report they will not need to fix.</p>
+      <dl class="spec">
+        <dt>Platforms</dt><dd>Web, iOS, Android</dd>
+        <dt>Banks</dt><dd>2,400+ via open banking</dd>
+        <dt>Exports</dt><dd>CSV, PDF, Xero, QuickBooks</dd>
+        <dt>Trial</dt><dd>30 days, no card needed</dd>
+      </dl>
+      <div class="btn-row"><a class="btn" href="#pricing">See plans</a></div>
+    </div>
+  </dialog>
+
+  <dialog id="d-lens" closedby="any" aria-labelledby="d-lens-t">
+    <button class="icon-btn dialog-close" commandfor="d-lens" command="close" aria-label="Close">×</button>
+    <div class="dialog-body">
+      <div class="art art--lens" aria-hidden="true"></div>
+      <h2 id="d-lens-t">Lens One</h2>
+      <p class="muted">Scan barcodes, take tap-to-pay cards and print receipts from one small device.</p>
+      <dl class="spec">
+        <dt>Size</dt><dd>9 × 9 × 4 cm, 210 g</dd>
+        <dt>Payments</dt><dd>Contactless, chip, Apple Pay, Google Pay</dd>
+        <dt>Battery</dt><dd>12 hours, USB-C</dd>
+        <dt>Warranty</dt><dd>2 years</dd>
+      </dl>
+      <div class="btn-row"><a class="btn" href="contact.html">Order Lens One</a></div>
+    </div>
+  </dialog>
+
+  <dialog id="d-pulse" closedby="any" aria-labelledby="d-pulse-t">
+    <button class="icon-btn dialog-close" commandfor="d-pulse" command="close" aria-label="Close">×</button>
+    <div class="dialog-body">
+      <div class="art art--pulse" aria-hidden="true"></div>
+      <h2 id="d-pulse-t">Pulse</h2>
+      <p class="muted">Checks your site every minute from five regions and sends a text when something is really wrong.</p>
+      <dl class="spec">
+        <dt>Checks</dt><dd>Uptime, page speed, SSL expiry</dd>
+        <dt>Alerts</dt><dd>SMS, email, phone call</dd>
+        <dt>Status page</dt><dd>Included, on your domain</dd>
+      </dl>
+      <div class="btn-row"><a class="btn" href="contact.html">Monitor my site</a></div>
+    </div>
+  </dialog>
+
+  <dialog id="d-atlas" closedby="any" aria-labelledby="d-atlas-t">
+    <button class="icon-btn dialog-close" commandfor="d-atlas" command="close" aria-label="Close">×</button>
+    <div class="dialog-body">
+      <div class="art art--atlas" aria-hidden="true"></div>
+      <h2 id="d-atlas-t">Atlas Tag</h2>
+      <p class="muted">Know where every delivery is without asking the driver. Shares a live link with your customer.</p>
+      <dl class="spec">
+        <dt>Size</dt><dd>32 mm, 8 g</dd>
+        <dt>Battery</dt><dd>Up to 2 years</dd>
+        <dt>Network</dt><dd>LTE-M, works in 60+ countries</dd>
+        <dt>Monthly fee</dt><dd>None</dd>
+      </dl>
+      <div class="btn-row"><a class="btn" href="contact.html">Order tags</a></div>
+    </div>
+  </dialog>
+
+  <dialog id="d-bloom" closedby="any" aria-labelledby="d-bloom-t">
+    <button class="icon-btn dialog-close" commandfor="d-bloom" command="close" aria-label="Close">×</button>
+    <div class="dialog-body">
+      <div class="art art--bloom" aria-hidden="true"></div>
+      <h2 id="d-bloom-t">Brand Kit</h2>
+      <p class="muted">A complete identity for a new or tired business, delivered in three weeks.</p>
+      <dl class="spec">
+        <dt>Week 1</dt><dd>Workshop and three directions</dd>
+        <dt>Week 2</dt><dd>Logo, colour and type</dd>
+        <dt>Week 3</dt><dd>Templates and guidelines</dd>
+        <dt>Revisions</dt><dd>Two rounds included</dd>
+      </dl>
+      <div class="btn-row"><a class="btn" href="contact.html">Start a Brand Kit</a></div>
+    </div>
+  </dialog>
+
+  <dialog id="d-forge" closedby="any" aria-labelledby="d-forge-t">
+    <button class="icon-btn dialog-close" commandfor="d-forge" command="close" aria-label="Close">×</button>
+    <div class="dialog-body">
+      <div class="art art--forge" aria-hidden="true"></div>
+      <h2 id="d-forge-t">Speed Sprint</h2>
+      <p class="muted">We audit, fix and re-measure your site. Most clients see pages load two to five times faster.</p>
+      <dl class="spec">
+        <dt>Length</dt><dd>2 weeks</dd>
+        <dt>Covers</dt><dd>Images, fonts, scripts, caching, hosting</dd>
+        <dt>You get</dt><dd>The fixes, plus a before/after report</dd>
+      </dl>
+      <div class="btn-row"><a class="btn" href="contact.html">Book a sprint</a></div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Northlight</a>
+          <p style="margin-top: 0.75rem;">Product studio for independent businesses.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Site</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Products</h2>
+          <ul>
+            <li><a href="#ledger">Ledger</a></li>
+            <li><a href="#lens">Lens One</a></li>
+            <li><a href="#pulse">Pulse</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Say hello</h2>
+          <ul>
+            <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li><a href="tel:+15550100200">+1 555 010 0200</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© 2026 Northlight Studio (a fictional company)</span>
+        <span>Built with HTML and CSS only. No JavaScript.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
