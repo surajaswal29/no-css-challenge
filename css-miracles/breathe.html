@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breathe | CSS Miracles</title>
+  <style>
+    /* Box breathing (4s in, 4s hold, 4s out, 4s hold) guided by a blooming flower.
+       The instructions themselves are animated with the `content` property. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @property --spread { syntax: "<length>"; inherits: true; initial-value: 0px; }
+    @property --hue    { syntax: "<number>"; inherits: true; initial-value: 190; }
+
+    :root { --cycle: 16s; --petal: min(22vmin, 160px); }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: #e8fbff;
+      background:
+        radial-gradient(circle at 50% 45%, hsl(var(--hue) 60% 22%), transparent 65%),
+        linear-gradient(160deg, hsl(calc(var(--hue) + 40) 45% 12%), hsl(calc(var(--hue) - 20) 50% 8%));
+      animation: hue 64s linear infinite;
+    }
+
+    .flower {
+      position: relative;
+      width: var(--petal);
+      height: var(--petal);
+      animation: breathe var(--cycle) ease-in-out infinite;
+    }
+
+    .petal {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      mix-blend-mode: screen;
+      background: radial-gradient(circle at 50% 50%,
+        hsl(calc(var(--hue) + var(--i) * 12) 85% 70% / 0.9),
+        hsl(calc(var(--hue) + var(--i) * 12) 80% 45% / 0.35) 70%);
+      transform: rotate(calc(var(--i) * 45deg)) translateX(var(--spread));
+    }
+
+    .petal:nth-child(1) { --i: 0; }
+    .petal:nth-child(2) { --i: 1; }
+    .petal:nth-child(3) { --i: 2; }
+    .petal:nth-child(4) { --i: 3; }
+    .petal:nth-child(5) { --i: 4; }
+    .petal:nth-child(6) { --i: 5; }
+    .petal:nth-child(7) { --i: 6; }
+    .petal:nth-child(8) { --i: 7; }
+
+    .halo {
+      position: absolute;
+      inset: -60%;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 60px hsl(var(--hue) 80% 60% / 0.25), inset 0 0 60px hsl(var(--hue) 80% 60% / 0.2);
+      animation: halo var(--cycle) ease-in-out infinite;
+    }
+
+    .cue {
+      position: fixed;
+      bottom: 12vh;
+      width: 100%;
+      text-align: center;
+      font-weight: 200;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      letter-spacing: 0.35em;
+      text-transform: lowercase;
+    }
+
+    .cue::after {
+      content: "breathe in";
+      animation: cue var(--cycle) step-end infinite;
+    }
+
+    .timer {
+      position: fixed;
+      bottom: 7vh;
+      left: 50%;
+      width: min(240px, 60vw);
+      height: 2px;
+      translate: -50% 0;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .timer::before {
+      content: "";
+      display: block;
+      height: 100%;
+      background: #e8fbff;
+      transform-origin: left;
+      animation: tick calc(var(--cycle) / 4) linear infinite;
+    }
+
+    .dust {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 70% 20%, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1.5px 1.5px at 85% 75%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(2px 2px at 30% 80%, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1.5px 1.5px at 50% 12%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1.5px 1.5px at 10% 60%, rgba(255, 255, 255, 0.4), transparent);
+      animation: float 30s ease-in-out infinite alternate;
+    }
+
+    @keyframes breathe {
+      0%   { --spread: 0px;                         transform: rotate(0deg) scale(0.55); }
+      25%  { --spread: calc(var(--petal) * 0.45);   transform: rotate(90deg) scale(1); }
+      50%  { --spread: calc(var(--petal) * 0.45);   transform: rotate(90deg) scale(1); }
+      75%  { --spread: 0px;                         transform: rotate(180deg) scale(0.55); }
+      100% { --spread: 0px;                         transform: rotate(180deg) scale(0.55); }
+    }
+
+    @keyframes halo {
+      0%, 75%, 100% { transform: scale(0.6); opacity: 0.3; }
+      25%, 50%      { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes cue {
+      0%   { content: "breathe in"; }
+      25%  { content: "hold"; }
+      50%  { content: "breathe out"; }
+      75%  { content: "rest"; }
+    }
+
+    @keyframes tick { from { transform: scaleX(0); } }
+    @keyframes hue { to { --hue: 550; } }
+    @keyframes float { to { transform: translateY(-4vh) translateX(2vw); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dust, body { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="flower" role="img" aria-label="A flower that opens as you breathe in and closes as you breathe out">
+    <div class="halo"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  </div>
+  <div class="dust"></div>
+  <p class="cue" aria-live="off"></p>
+  <div class="timer"></div>
+</body>
+</html>

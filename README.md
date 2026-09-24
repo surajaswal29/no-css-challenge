@@ -35,6 +35,14 @@ designs built with only HTML and CSS: no JavaScript, no images, no libraries.
 | `aurora.html` | Glassmorphism card with a rotating conic-gradient border |
 | `loaders.html` | Twelve loading indicators |
 | `coffee.html` | CSS illustration with rising steam and latte art |
+| `breathe.html` | Guided box breathing; the text cue itself is animated with `content` |
+| `ocean.html` | Moonlit sea with layered rolling waves and a shimmering reflection |
+| `rain.html` | Rainy window: bokeh lights, fogged glass, sliding drops |
+| `fireflies.html` | Dusk meadow with fireflies, each on its own path and rhythm |
+| `lava-lamp.html` | Gooey metaball lava lamp (`filter: contrast()` + `blur()`) |
+| `hypnosis.html` | Phyllotaxis sunflower with `sqrt()`, pendulum wave, twisting tunnel |
+| `patterns.html` | Twelve seamless single-background patterns |
+| `scroll.html` | Scroll-driven animations with `animation-timeline` (Chrome / Edge) |
 
 ## Features
 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moonlit Ocean | CSS Miracles</title>
+  <style>
+    /* A moonlit sea: layered wave strips, a shimmering reflection and a drifting boat. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(#050a1f 0%, #0d1b44 45%, #274b7a 62%, #0b1733 63%);
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0 0 40% 0;
+      background:
+        radial-gradient(1.5px 1.5px at 8% 12%, #fff, transparent),
+        radial-gradient(1px 1px at 18% 38%, #fff, transparent),
+        radial-gradient(1px 1px at 27% 8%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 42% 26%, #fff, transparent),
+        radial-gradient(1px 1px at 55% 6%, #fff, transparent),
+        radial-gradient(1px 1px at 78% 30%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 88% 10%, #fff, transparent),
+        radial-gradient(1px 1px at 95% 42%, #fff, transparent),
+        radial-gradient(1px 1px at 35% 48%, #fff, transparent),
+        radial-gradient(1px 1px at 65% 44%, #fff, transparent);
+      animation: twinkle 5s ease-in-out infinite alternate;
+    }
+
+    .stars.b {
+      background:
+        radial-gradient(1px 1px at 12% 25%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 33% 15%, #fff, transparent),
+        radial-gradient(1px 1px at 48% 40%, #fff, transparent),
+        radial-gradient(1px 1px at 72% 18%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 83% 36%, #fff, transparent),
+        radial-gradient(1px 1px at 5% 45%, #fff, transparent);
+      animation-delay: -2.5s;
+    }
+
+    .moon {
+      position: absolute;
+      top: 14vh;
+      left: 50%;
+      width: 16vmin;
+      height: 16vmin;
+      margin-left: -8vmin;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 35%, rgba(0, 0, 0, 0.08) 0 8%, transparent 9%),
+        radial-gradient(circle at 62% 60%, rgba(0, 0, 0, 0.07) 0 12%, transparent 13%),
+        radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.06) 0 6%, transparent 7%),
+        radial-gradient(circle at 40% 40%, #fffdf0, #e8e3c8);
+      box-shadow: 0 0 40px 10px rgba(255, 250, 220, 0.35), 0 0 120px 40px rgba(160, 190, 255, 0.2);
+    }
+
+    /* Shimmering reflection: stacked blurred bars that breathe sideways. */
+    .reflection {
+      position: absolute;
+      top: 62vh;
+      left: 50%;
+      width: 18vmin;
+      height: 30vh;
+      translate: -50% 0;
+      background:
+        repeating-linear-gradient(transparent 0 7px, rgba(255, 250, 220, 0.5) 7px 9px, transparent 9px 16px, rgba(255, 250, 220, 0.3) 16px 17px);
+      mask-image: radial-gradient(ellipse 50% 100% at 50% 0, #000 20%, transparent 70%);
+      filter: blur(2.5px);
+      mix-blend-mode: screen;
+      animation: shimmer 3s ease-in-out infinite alternate;
+    }
+
+    .sea {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wave, .boat-wrap, .boat { animation: none; }
+    }
+
+    /* Each wave layer is a strip of half-ellipse crests tiled horizontally,
+       sliding sideways while the whole layer gently rises and falls. */
+    .wave {
+      position: absolute;
+      left: -4px;
+      right: -4px;
+      top: var(--top);
+      bottom: 0;
+      background:
+        radial-gradient(ellipse 60% 100% at 50% 100%, var(--c) 98%, transparent 100%) 0 0 / var(--w) var(--h) repeat-x,
+        linear-gradient(var(--c), var(--c)) 0 calc(var(--h) - 1px) / 100% 100% no-repeat;
+      animation:
+        swell var(--t) linear infinite,
+        bob calc(var(--t) / 3) ease-in-out infinite alternate;
+    }
+
+    .w1 { --top: 61vh; --c: #1b3a6b; --w: 180px; --h: 14px; --t: 18s; opacity: 0.8; }
+    .w2 { --top: 65vh; --c: #13294f; --w: 260px; --h: 20px; --t: 24s; animation-direction: reverse, alternate; }
+    .w3 { --top: 71vh; --c: #0c1c3c; --w: 360px; --h: 28px; --t: 30s; }
+    .w4 { --top: 80vh; --c: #07112a; --w: 520px; --h: 38px; --t: 40s; animation-direction: reverse, alternate; }
+
+    .boat {
+      position: absolute;
+      top: 64vh;
+      left: 22vw;
+      width: 9vmin;
+      height: 2vmin;
+      background: #02060f;
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+      animation: bob 6s ease-in-out infinite;
+    }
+
+    .boat::before {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 40%;
+      width: 4vmin;
+      height: 6vmin;
+      background: #02060f;
+      clip-path: polygon(0 0, 0 100%, 100% 100%);
+    }
+
+    .boat-wrap { position: absolute; inset: 0; animation: sail 90s linear -40s infinite; }
+
+    .caption {
+      position: absolute;
+      bottom: 5vh;
+      width: 100%;
+      text-align: center;
+      font-style: italic;
+      letter-spacing: 0.1em;
+      color: rgba(220, 230, 255, 0.7);
+      font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+    }
+
+    @keyframes swell { to { background-position: var(--w) 0, 0 calc(var(--h) - 1px); } }
+    @keyframes bob { to { transform: translateY(1.2vh); } }
+    @keyframes twinkle { to { opacity: 0.35; } }
+    @keyframes shimmer { to { transform: scaleX(1.6); opacity: 0.6; } }
+    @keyframes bob {
+      50% { transform: translateY(1.2vmin) rotate(-3deg); }
+    }
+    @keyframes sail { from { translate: -40vw 0; } to { translate: 100vw 0; } }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="stars b"></div>
+  <div class="moon"></div>
+  <div class="sea">
+    <div class="wave w1"></div>
+    <div class="wave w2"></div>
+    <div class="wave w3"></div>
+    <div class="wave w4"></div>
+  </div>
+  <div class="reflection"></div>
+  <div class="boat-wrap"><div class="boat"></div></div>
+  <p class="caption">the tide keeps its own time</p>
+</body>
+</html>
